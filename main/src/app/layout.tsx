@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Shyam Indus Power Solutions Pvt Ltd | EPC Company",
+  title: "ARADHYA ELECTRICALS & ENTERPRISES | Electrical Services",
   description:
-    "Shyam Indus Power Solutions Pvt Ltd (SIPS) is an ISO 9001:2015 certified EPC Company offering comprehensive services in Power Transmission, Railways, and Civil Infrastructure from concept to commissioning.",
+    "ARADHYA ELECTRICALS & ENTERPRISES is a trusted electrical services company offering comprehensive solutions in Power Transmission, Electrical Contracting, and Civil Infrastructure from concept to commissioning.",
   keywords:
-    "SIPS, Shyam Indus, Power Solutions, EPC, Transmission, Railways, Civil Infrastructure, Gurugram",
+    "ARADHYA, Aradhya Electricals, Aradhya Enterprises, Electrical Services, Power Transmission, Civil Infrastructure",
   openGraph: {
-    title: "Shyam Indus Power Solutions Pvt Ltd",
+    title: "ARADHYA ELECTRICALS & ENTERPRISES",
     description:
-      "ISO 9001:2015 certified EPC Company specializing in Power Transmission, Railways & Civil Infrastructure.",
+      "Trusted electrical services company specializing in Power Transmission, Electrical Contracting & Civil Infrastructure.",
     type: "website",
   },
 };

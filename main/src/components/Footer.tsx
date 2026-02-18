@@ -60,8 +60,8 @@ export default function Footer() {
                     </a>
                 ))}
             </nav>
-            <p>Copyright &copy; {new Date().getFullYear()} All rights reserved.</p>
-            <p style={{ marginTop: 4 }}>www.shyamindus.com</p>
+            <p>Copyright &copy; {new Date().getFullYear()} ARADHYA ELECTRICALS & ENTERPRISES. All rights reserved.</p>
+            <p style={{ marginTop: 4 }}>www.aradhyaee.com</p>
         </footer>
     );
 }

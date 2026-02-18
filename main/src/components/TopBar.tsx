@@ -47,7 +47,7 @@ const styles: Record<string, React.CSSProperties> = {
 };
 
 const contactItems = [
-    { icon: "✉", text: "info@shyamindus.com" },
+    { icon: "✉", text: "info@aradhyaee.com" },
     { icon: "📞", text: "+91-124-6913000" },
     { icon: "📍", text: "Signature Tower, Gurugram" },
 ];

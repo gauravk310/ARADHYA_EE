@@ -21,7 +21,7 @@ const styles: Record<string, React.CSSProperties> = {
     slideOverlay: {
         position: "absolute",
         inset: 0,
-        background: "rgba(0,30,80,0.5)",
+        background: "rgba(0,40,50,0.55)",
     },
     slideContent: {
         position: "relative",

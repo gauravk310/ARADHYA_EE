@@ -63,10 +63,10 @@ export default function CTABanner() {
         >
             <div style={styles.ctaOverlay} />
             <div style={styles.ctaContent}>
-                <h2 style={styles.ctaH2}>Shyam Indus Power Solutions</h2>
+                <h2 style={styles.ctaH2}>ARADHYA ELECTRICALS &amp; ENTERPRISES</h2>
                 <p style={styles.ctaP}>
-                    SIPS has a vast experience in execution of Turnkey Projects (including
-                    civil works) of Power Transmission &amp; Distribution viz.
+                    ARADHYA ELECTRICALS & ENTERPRISES has vast experience in execution of
+                    electrical and civil projects including Power Transmission &amp; Distribution.
                 </p>
                 <a
                     href="#"

@@ -89,7 +89,7 @@ const features = [
     {
         icon: "≡",
         title: "Message from MD",
-        desc: "'Shyam Indus Power Solutions – Powering India's Growth Journey By Constructing Infrastructure of National Importance.' Dear Stakeholders, Warm Greetings! As we continue to grow...",
+        desc: "'ARADHYA ELECTRICALS & ENTERPRISES – Powering India's Growth Journey By Constructing Infrastructure of National Importance.' Dear Stakeholders, Warm Greetings! As we continue to grow...",
     },
 ];
 
@@ -155,13 +155,12 @@ export default function AboutSection() {
 
                 {/* Content */}
                 <div>
-                    <h2 style={styles.aboutH2}>About Shyam Indus</h2>
+                    <h2 style={styles.aboutH2}>About ARADHYA ELECTRICALS</h2>
                     <p style={styles.aboutP}>
-                        Shyam Indus Power Solutions Pvt Ltd (SIPS) is an established ISO
-                        9001: 2015 certified &amp; SAP enabled EPC Company, incorporated in
-                        the year 2004, with diversified interests in Energy, Railways and
-                        Civil Infrastructure offering comprehensive services from concept to
-                        commissioning...
+                        ARADHYA ELECTRICALS & ENTERPRISES is an established electrical
+                        services company with diversified interests in Power Transmission,
+                        Electrical Contracting, and Civil Infrastructure offering
+                        comprehensive services from concept to commissioning...
                     </p>
                     <a
                         href="#"

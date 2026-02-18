@@ -1,13 +1,19 @@
 // Shared color constants used across components
 export const COLORS = {
-    blue: "#1565c0",
-    darkBlue: "#0d47a1",
+    teal: "#0d6e7a",
+    darkTeal: "#0a5661",
+    orange: "#e8621a",
+    darkOrange: "#c45216",
     navy: "#1a2744",
-    red: "#c62828",
-    lightBlue: "#e3f2fd",
+    lightTeal: "#e0f2f1",
     gray: "#f5f5f5",
     text: "#333",
     muted: "#555",
+    // Mapping old names to new colors to avoid breaking other components immediately
+    blue: "#0d6e7a",
+    darkBlue: "#0a5661",
+    red: "#e8621a",
+    lightBlue: "#e0f2f1",
 };
 
 // Navigation items
@@ -33,7 +39,7 @@ export const navItems = [
     {
         label: "Careers",
         href: "#",
-        children: ["Current Openings", "Life at SIPS"],
+        children: ["Current Openings", "Life at ARADHYA EE"],
     },
     {
         label: "Contact",
@@ -48,7 +54,7 @@ export const slides = [
     {
         bg: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80",
         title: "Transmission",
-        desc: "SIPS provides the concept to commissioning solutions of Turnkey Projects. Our EPC division offers comprehensive Engineering, Procurement and Construction services in areas of power Transmission & Distribution as well. The key...",
+        desc: "ARADHYA EE provides the concept to commissioning solutions of Turnkey Projects. Our EPC division offers comprehensive Engineering, Procurement and Construction services in areas of power Transmission & Distribution as well. The key...",
     },
     {
         bg: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=1600&q=80",
@@ -58,7 +64,7 @@ export const slides = [
     {
         bg: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80",
         title: "Civil Infrastructure",
-        desc: "In its endeavour to diversify and gain expertise in construction industry, SIPS has forayed into the civil sector as well. The Company is engaged in Civil Works of national importance.",
+        desc: "In its endeavour to diversify and gain expertise in construction industry, ARADHYA EE has forayed into the civil sector as well. The Company is engaged in Civil Works of national importance.",
     },
 ];
 
@@ -77,7 +83,7 @@ export const services = [
     {
         icon: "🏗️",
         label: "Civil",
-        desc: "In its endeavour to diversify and gain expertise in construction industry, SIPS has forayed into the civil sector as well. The Company is engaged in Civil Works...",
+        desc: "In its endeavour to diversify and gain expertise in construction industry, ARADHYA EE has forayed into the civil sector as well. The Company is engaged in Civil Works...",
     },
 ];
 
