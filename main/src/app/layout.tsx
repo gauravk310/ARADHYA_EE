@@ -13,6 +13,10 @@ export const metadata: Metadata = {
       "Trusted electrical services company specializing in Power Transmission, Electrical Contracting & Civil Infrastructure.",
     type: "website",
   },
+  icons: {
+    icon: "/logo.svg",
+    apple: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
