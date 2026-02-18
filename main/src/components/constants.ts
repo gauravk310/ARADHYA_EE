@@ -1,0 +1,100 @@
+// Shared color constants used across components
+export const COLORS = {
+    blue: "#1565c0",
+    darkBlue: "#0d47a1",
+    navy: "#1a2744",
+    red: "#c62828",
+    lightBlue: "#e3f2fd",
+    gray: "#f5f5f5",
+    text: "#333",
+    muted: "#555",
+};
+
+// Navigation items
+export const navItems = [
+    { label: "Home", href: "#home" },
+    {
+        label: "About Us",
+        href: "#about",
+        children: ["Company Profile", "Vision & Mission", "Message from MD", "Leadership"],
+    },
+    {
+        label: "Services",
+        href: "#services",
+        children: ["Transmission", "Railways", "Civil"],
+    },
+    { label: "Reference", href: "#reference" },
+    {
+        label: "Investor",
+        href: "#",
+        children: ["Financial Results", "Annual Reports", "Shareholding Pattern"],
+    },
+    { label: "Media", href: "#", children: ["News", "Gallery"] },
+    {
+        label: "Careers",
+        href: "#",
+        children: ["Current Openings", "Life at SIPS"],
+    },
+    {
+        label: "Contact",
+        href: "#",
+        children: ["Contact Us", "Locations"],
+    },
+    { label: "ESS Portal", href: "#" },
+];
+
+// Hero slides
+export const slides = [
+    {
+        bg: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80",
+        title: "Transmission",
+        desc: "SIPS provides the concept to commissioning solutions of Turnkey Projects. Our EPC division offers comprehensive Engineering, Procurement and Construction services in areas of power Transmission & Distribution as well. The key...",
+    },
+    {
+        bg: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=1600&q=80",
+        title: "Railways",
+        desc: "Overhead Electrification works in Indian Railways. The company has commissioned Overhead Electrification Work for Northern Railways and continues to grow in this critical infrastructure domain.",
+    },
+    {
+        bg: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80",
+        title: "Civil Infrastructure",
+        desc: "In its endeavour to diversify and gain expertise in construction industry, SIPS has forayed into the civil sector as well. The Company is engaged in Civil Works of national importance.",
+    },
+];
+
+// Services
+export const services = [
+    {
+        icon: "⚡",
+        label: "Transmission",
+        desc: "Transmission forms a critical link in the power sector's value chain. India's power generation capacities are unevenly dispersed across the country creating...",
+    },
+    {
+        icon: "🚆",
+        label: "Railways",
+        desc: "Overhead Electrification works in Indian Railways. The company has commissioned Overhead Electrification Work for Northern Railways. On-going...",
+    },
+    {
+        icon: "🏗️",
+        label: "Civil",
+        desc: "In its endeavour to diversify and gain expertise in construction industry, SIPS has forayed into the civil sector as well. The Company is engaged in Civil Works...",
+    },
+];
+
+// Activities
+export const activities = [
+    {
+        img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80",
+        title:
+            "Welcoming the New Year Together: A Celebration of Joy, Teamwork, and New Beginnings",
+    },
+    {
+        img: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&q=80",
+        title:
+            "Celebrating Christmas Together: A Festive Day of Team Spirit and Joy at the Workplace",
+    },
+    {
+        img: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&q=80",
+        title: "Blood Donation Camp on the Occasion of Founder's Day",
+    },
+];
