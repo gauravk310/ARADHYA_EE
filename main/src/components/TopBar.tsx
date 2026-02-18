@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Facebook, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { COLORS } from "./constants";
 
 const styles: Record<string, React.CSSProperties> = {
@@ -25,47 +26,34 @@ const styles: Record<string, React.CSSProperties> = {
     topBarRight: { display: "flex", alignItems: "center", gap: 14 },
     socialIcon: {
         color: COLORS.blue,
-        fontSize: 15,
         cursor: "pointer",
         textDecoration: "none",
         transition: "transform 0.2s, color 0.2s",
-        display: "inline-block",
-    },
-    searchBtn: {
-        background: COLORS.blue,
-        color: "#fff",
-        border: "none",
-        width: 38,
-        height: 38,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        cursor: "pointer",
-        fontSize: 15,
-        transition: "background 0.2s",
     },
 };
 
 const contactItems = [
-    { icon: "✉", text: "info@aradhyaee.com" },
-    { icon: "📞", text: "+91-124-6913000" },
-    { icon: "📍", text: "Signature Tower, Gurugram" },
+    { icon: <Mail size={16} />, text: "info@aradhyaee.com" },
+    { icon: <Phone size={16} />, text: "+91-124-6913000" },
+    { icon: <MapPin size={16} />, text: "Signature Tower, Gurugram" },
 ];
 
 const socialLinks = [
-    { key: "f", label: "𝐟", href: "#" },
-    { key: "t", label: "𝐭", href: "#" },
-    { key: "in", label: "🔗", href: "#" },
-    { key: "ig", label: "📷", href: "#" },
+    { key: "fb", icon: <Facebook size={18} fill="currentColor" strokeWidth={0} />, href: "https://facebook.com/aradhyaee" },
+    { key: "li", icon: <Linkedin size={18} fill="currentColor" strokeWidth={0} />, href: "https://linkedin.com/company/aradhyaee" },
+    { key: "ig", icon: <Instagram size={18} />, href: "https://instagram.com/aradhyaee" },
 ];
 
 export default function TopBar() {
     return (
         <div style={styles.topBar}>
             <div style={styles.topBarLeft}>
-                {contactItems.map((item) => (
-                    <div key={item.text} style={styles.topBarItem}>
-                        <span style={{ color: COLORS.blue }}>{item.icon}</span>
+                {contactItems.map((item, idx) => (
+                    <div key={idx} style={styles.topBarItem}>
+                        <span style={{ color: COLORS.blue, display: "flex" }}>{item.icon}</span>
                         <span>{item.text}</span>
                     </div>
                 ))}
@@ -75,6 +63,8 @@ export default function TopBar() {
                     <a
                         key={s.key}
                         href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         style={styles.socialIcon}
                         onMouseEnter={(e) => {
                             (e.currentTarget as HTMLElement).style.transform = "scale(1.2)";
@@ -85,20 +75,9 @@ export default function TopBar() {
                             (e.currentTarget as HTMLElement).style.color = COLORS.blue;
                         }}
                     >
-                        {s.label}
+                        {s.icon}
                     </a>
                 ))}
-                <button
-                    style={styles.searchBtn}
-                    onMouseEnter={(e) =>
-                        ((e.currentTarget as HTMLElement).style.background = COLORS.darkBlue)
-                    }
-                    onMouseLeave={(e) =>
-                        ((e.currentTarget as HTMLElement).style.background = COLORS.blue)
-                    }
-                >
-                    🔍
-                </button>
             </div>
         </div>
     );
