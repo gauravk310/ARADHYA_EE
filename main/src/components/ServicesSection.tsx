@@ -115,7 +115,7 @@ export default function ServicesSection() {
                                     {s.desc}
                                 </p>
                                 <a
-                                    href="#"
+                                    href={`/services/${s.slug}`}
                                     style={{
                                         display: "inline-block",
                                         padding: "10px 26px",

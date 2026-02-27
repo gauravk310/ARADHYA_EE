@@ -77,8 +77,10 @@ const styles: Record<string, React.CSSProperties> = {
     },
 };
 
+type NavChild = string | { label: string; href: string };
+
 interface NavItemProps {
-    item: { label: string; href: string; children?: string[] };
+    item: { label: string; href: string; children?: NavChild[] };
     active: boolean;
     onActivate: (label: string) => void;
 }
@@ -119,24 +121,28 @@ function NavItem({ item, active, onActivate }: NavItemProps) {
             </a>
             {item.children && open && (
                 <div style={styles.dropdown}>
-                    {item.children.map((c) => (
-                        <a
-                            key={c}
-                            href="#"
-                            style={styles.dropdownItem}
-                            onMouseEnter={(e) => {
-                                (e.currentTarget as HTMLElement).style.background =
-                                    COLORS.lightBlue;
-                                (e.currentTarget as HTMLElement).style.color = COLORS.blue;
-                            }}
-                            onMouseLeave={(e) => {
-                                (e.currentTarget as HTMLElement).style.background = "";
-                                (e.currentTarget as HTMLElement).style.color = "";
-                            }}
-                        >
-                            {c}
-                        </a>
-                    ))}
+                    {item.children.map((c) => {
+                        const label = typeof c === "string" ? c : c.label;
+                        const href = typeof c === "string" ? "#" : c.href;
+                        return (
+                            <a
+                                key={label}
+                                href={href}
+                                style={styles.dropdownItem}
+                                onMouseEnter={(e) => {
+                                    (e.currentTarget as HTMLElement).style.background =
+                                        COLORS.lightBlue;
+                                    (e.currentTarget as HTMLElement).style.color = COLORS.blue;
+                                }}
+                                onMouseLeave={(e) => {
+                                    (e.currentTarget as HTMLElement).style.background = "";
+                                    (e.currentTarget as HTMLElement).style.color = "";
+                                }}
+                            >
+                                {label}
+                            </a>
+                        );
+                    })}
                 </div>
             )}
         </li>

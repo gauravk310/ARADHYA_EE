@@ -124,7 +124,7 @@ export default function HeroSlider() {
                         <h1 style={styles.slideH1}>{slide.title}</h1>
                         <p style={styles.slideP}>{slide.desc}</p>
                         <a
-                            href="#"
+                            href={`/services/${slide.slug}`}
                             style={styles.btnPrimary}
                             onMouseEnter={(e) => {
                                 (e.currentTarget as HTMLElement).style.background =
