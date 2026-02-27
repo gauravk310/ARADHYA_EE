@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { COLORS } from "./constants";
 
 const projects = [
@@ -179,8 +180,8 @@ export default function LatestProjectsSection() {
                     })}
                 </div>
 
-                <a
-                    href="#"
+                <Link
+                    href="/projects"
                     style={styles.viewAll}
                     onMouseEnter={(e) => {
                         (e.currentTarget as HTMLElement).style.color = COLORS.darkTeal;
@@ -192,7 +193,7 @@ export default function LatestProjectsSection() {
                     }}
                 >
                     View All Projects &gt;&gt;
-                </a>
+                </Link>
             </div>
         </section>
     );

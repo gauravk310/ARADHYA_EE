@@ -1,0 +1,254 @@
+{
+    "projects": [
+        {
+            "year": 2026,
+            "items": [
+                {
+                    "id": "proj-2026-001",
+                    "date": "January 02, 2026",
+                    "title": "Rate Contract for Supply of Goods – 765/400kV Substation, Bareilly",
+                    "description": "SIPS awarded a Rate Contract for supply of Goods Contract for Package – B- Construction of (i) 02 Nos. 400 kV Line bays, (ii) Augmentation of 1×1500 MVA ICT (3rd), (iii) 01 No 765kV ICT bay and associated Tie Bay and (iv) 01 No. 400 kV ICT bay at 765/400kV Substation, Bareilly: Spec No. NR3/NT/W-AIS/DOM/K00/25/11854 (Rfx No. 5002004746).",
+                    "client": "PGCIL",
+                    "category": "Transmission",
+                    "location": "Bareilly, Uttar Pradesh"
+                }
+            ]
+        },
+        {
+            "year": 2025,
+            "items": [
+                {
+                    "id": "proj-2025-001",
+                    "date": "December 22, 2025",
+                    "title": "33 KV Double Circuit Joda-Tensa Transmission Line",
+                    "description": "SIPS awarded a Rate Contract for SITC of 33 KV Double Circuit Joda-Tensa Transmission line and Underground cable system. Package # A New Tower 1 to proposed Tower at interface point (near Koira PSS/Existing Tower 110).",
+                    "client": "TPWODL",
+                    "category": "Transmission",
+                    "location": "Odisha"
+                },
+                {
+                    "id": "proj-2025-002",
+                    "date": "November 19, 2025",
+                    "title": "Surge Arresters for Delhi Metro Rail Corporation",
+                    "description": "SIPS awarded a Contract: OEW-1995 – \"Supply, Installation, Testing and Commissioning of Phase to Phase to Ground Metal oxide Surge Arresters in Dry type auxiliary transformer of ASS of Delhi Metro Rail Corporation Ltd.\"",
+                    "client": "DELHI METRO CORPORATION LIMITED LTD",
+                    "category": "Railways",
+                    "location": "Delhi"
+                },
+                {
+                    "id": "proj-2025-003",
+                    "date": "November 12, 2025",
+                    "title": "Extension of 765/400KV Champa S/S",
+                    "description": "SIPS awarded a work of Extension of 765/400KV Champa S/S (for Installation of 1x240MVAR, 765KV Bus Reactor & 1x125MVAR, 420 KV Bus Reactor at Champa PS (on bus Section-A where Lara I project is connected) under Transmission Scheme to control high voltage at Champa PS (On Bus Section-A, where Lara TPS -I (2x800MW) of NTPC is connected).",
+                    "client": "POWER GRID CORPORATION INDIA LTD",
+                    "category": "Transmission",
+                    "location": "Champa, Chhattisgarh"
+                },
+                {
+                    "id": "proj-2025-004",
+                    "date": "October 30, 2025",
+                    "title": "400 KV Substation Package at Jhatikra",
+                    "description": "SIPS awarded a contract for Supply of Service Contract for Substation Package SS-01 for Construction of additional 400 KV dia towards Mundka section at Jhatikra substation. Specification No. NR1/NT/W-CB/DOM/100/25/08207 (RFX-5002004558) Domestic Competitive Bidding (Project Funding: Domestic).",
+                    "client": "POWER GRID CORPORATION INDIA LTD",
+                    "category": "Transmission",
+                    "location": "Jhatikra, Delhi"
+                }
+            ]
+        },
+        {
+            "year": 2024,
+            "items": [
+                {
+                    "id": "proj-2024-001",
+                    "date": "September 27, 2024",
+                    "title": "Meter Data Downloading & Bill Distribution – TPCODL",
+                    "description": "SIPS awarded a contract for Meter Data Downloading Through CMRI & Non CMRI, Bill Printing, Bill Distribution and Site Verification of Permanent Disconnected Three Phase Consumers at TPSODL for LOI-2 (Bhanjanagar Circle), LOI-3 (Berhampur Circle) and LOI-6 (NED Division).",
+                    "client": "TPCODL",
+                    "category": "Distribution",
+                    "location": "Odisha"
+                },
+                {
+                    "id": "proj-2024-002",
+                    "date": "September 24, 2024",
+                    "title": "11 KV & LT Network Maintenance – TPCODL",
+                    "description": "SIPS awarded a contract for Letter of Intent for 11 KV & LT Network Maintenance & Allied Work, 33 KV Network Maintenance and Operational Assistance of 33/11 KV Sub-Stations of TPCODL with one year of validity.",
+                    "client": "TPCODL",
+                    "category": "Distribution",
+                    "location": "Odisha"
+                },
+                {
+                    "id": "proj-2024-003",
+                    "date": "September 14, 2024",
+                    "title": "OHE Modification at Duffrin Bridge – Northern Railway",
+                    "description": "SIPS awarded a contract for Modification required in existing OHE arrangement for conversion of 1 X 25 KV OHE system to 2 X 25 KV OHE system in NDLS-CPYZ section of Delhi sub-urban area of Delhi division/N.Rly, including design, supply, erection testing & commissioning of SSP at Duffrin Bridge in connection with raising the speed to 160 kmph.",
+                    "client": "NORTHERN RAILWAY",
+                    "category": "Railways",
+                    "location": "Delhi"
+                },
+                {
+                    "id": "proj-2024-004",
+                    "date": "August 14, 2024",
+                    "title": "Library Building & Gate Complex – IGIT Sarang",
+                    "description": "SIPS awarded a contract for Construction of Library Building, Main Gate Complex & Hostel Side Gate at Indira Gandhi Institute Technology (IGIT) Sarang, Dhenkanal.",
+                    "client": "IDCO",
+                    "category": "Civil",
+                    "location": "Sarang, Dhenkanal, Odisha"
+                },
+                {
+                    "id": "proj-2024-005",
+                    "date": "August 12, 2024",
+                    "title": "Meter Installation – BCDD-1 Division TPCODL",
+                    "description": "SIPS awarded a contract for Rate Contract for Meter Installation and Associated Services in BCDD-1 Division of TPCODL for 1st year.",
+                    "client": "TPCODL",
+                    "category": "Distribution",
+                    "location": "Odisha"
+                },
+                {
+                    "id": "proj-2024-006",
+                    "date": "August 01, 2024",
+                    "title": "Meter Reading & Spot Billing – TPCODL",
+                    "description": "SIPS awarded a contract for Rate Contract for Meter Reading cum Spot Billing/Bill Distribution Door to Door Collection and Disconnection Squad at TPCODL Division: TED.",
+                    "client": "TPCODL",
+                    "category": "Distribution",
+                    "location": "Odisha"
+                },
+                {
+                    "id": "proj-2024-007",
+                    "date": "July 12, 2024",
+                    "title": "Copper Cable in Elevated Section – DMRC",
+                    "description": "SIPS awarded a contract for EOM/2024 01 Supply & Laying of 142 km Aluminium cables including removal of copper cable in elevated section of DMRC.",
+                    "client": "DMRC",
+                    "category": "Railways",
+                    "location": "Delhi"
+                },
+                {
+                    "id": "proj-2024-008",
+                    "date": "June 13, 2024",
+                    "title": "400kV Ranchi Substation Extension – PGCIL",
+                    "description": "SIPS awarded a contract for Substation Package SS-121 for (a) Extension of 400kV Ranchi (PG) substation including transmission line works and (b) Extension of 400kV Ranchi (New) substation under Eastern Region.",
+                    "client": "PGCIL",
+                    "category": "Transmission",
+                    "location": "Ranchi, Jharkhand"
+                },
+                {
+                    "id": "proj-2024-009",
+                    "date": "June 13, 2024",
+                    "title": "33KV, 11KV and 1.1 KV Works – TPSODL",
+                    "description": "SIPS awarded a contract for 33KV, 11KV and 1.1 KV Associated Works (Construction/Augmentation) in TPSODL for Releasing New HT and LT Connection & Distribution Electrical works.",
+                    "client": "TPSODL",
+                    "category": "Distribution",
+                    "location": "Odisha"
+                },
+                {
+                    "id": "proj-2024-010",
+                    "date": "June 06, 2024",
+                    "title": "OHE Upgradation – BSP-CPH Section",
+                    "description": "SIPS awarded a contract for Upgradation of Existing OHE to 2 x 25kv AT Feeder system between BSP-CPH section of Bilaspur Division By South East Central Railway.",
+                    "client": "South East Central Railway",
+                    "category": "Railways",
+                    "location": "Bilaspur, Chhattisgarh"
+                },
+                {
+                    "id": "proj-2024-011",
+                    "date": "May 01, 2024",
+                    "title": "Railway Formation Work – South Eastern Railway",
+                    "description": "SIPS awarded a contract for Execution of earthwork in cutting & filling for making of Railway formation work including blanketing, extension of minor bridges, supply of cess ballast, p. way works, execution of protection works, diversion road works, transportation, supply of p. way fitting and others miscellaneous works between (Km: 414.734 to Km: 417.455) of Rourkela-Panposh section for extension of Birmitrapur line upto Rourkela Yard under the jurisdiction of Dy CE/Con/Jharsuguda in Chakradharpur division by South Eastern Railway.",
+                    "client": "South Eastern Railway",
+                    "category": "Railways",
+                    "location": "Rourkela, Odisha"
+                },
+                {
+                    "id": "proj-2024-012",
+                    "date": "April 15, 2024",
+                    "title": "1×25 kV Transmission Line Upgradation",
+                    "description": "Shyam Indus Power Solutions Pvt Ltd awarded a contract for Design, Supply, Erection, Testing & Commissioning for upgradation of existing 1×25 kV system.",
+                    "client": "Indian Railways",
+                    "category": "Railways",
+                    "location": "Pan India"
+                }
+            ]
+        },
+        {
+            "year": 2023,
+            "items": [
+                {
+                    "id": "proj-2023-001",
+                    "date": "November 15, 2023",
+                    "title": "765kV Transmission Line – Western Region",
+                    "description": "SIPS awarded a turnkey contract for the construction of 765kV Single Circuit Transmission Line (Package TL-07) covering a stretch of approximately 180 km route length in the Western Region of India under ISTS scheme.",
+                    "client": "POWER GRID CORPORATION INDIA LTD",
+                    "category": "Transmission",
+                    "location": "Western Region"
+                },
+                {
+                    "id": "proj-2023-002",
+                    "date": "September 08, 2023",
+                    "title": "33/11 KV Substation Construction – TPCODL",
+                    "description": "SIPS awarded a contract for Construction of new 33/11 KV Indoor Substation with 2x10 MVA Power Transformer and associated HT/LT distribution network in TPCODL operational area.",
+                    "client": "TPCODL",
+                    "category": "Distribution",
+                    "location": "Odisha"
+                },
+                {
+                    "id": "proj-2023-003",
+                    "date": "July 22, 2023",
+                    "title": "Warehouse Construction – MPWLC",
+                    "description": "SIPS awarded a contract for Construction of Warehouses, roads, water pipelines and ancillary civil works for MP Warehousing & Logistic Corporation (MPWLC) at multiple locations in Madhya Pradesh.",
+                    "client": "MPWLC",
+                    "category": "Civil",
+                    "location": "Madhya Pradesh"
+                },
+                {
+                    "id": "proj-2023-004",
+                    "date": "May 10, 2023",
+                    "title": "OHE Works – North Eastern Railway",
+                    "description": "SIPS awarded a contract for Supply, Installation, Testing and Commissioning of 25kV AC Overhead Electrification works in the North Eastern Railway zone covering approximately 120 Route Km.",
+                    "client": "North Eastern Railway",
+                    "category": "Railways",
+                    "location": "North Eastern Region"
+                },
+                {
+                    "id": "proj-2023-005",
+                    "date": "March 18, 2023",
+                    "title": "400kV GIS Substation – Northern Region",
+                    "description": "SIPS awarded a contract for Supply, Erection, Testing and Commissioning of 400kV GIS substation package under Northern Region Strengthening Scheme – Phase IV.",
+                    "client": "PGCIL",
+                    "category": "Transmission",
+                    "location": "Northern Region"
+                }
+            ]
+        },
+        {
+            "year": 2022,
+            "items": [
+                {
+                    "id": "proj-2022-001",
+                    "date": "October 20, 2022",
+                    "title": "Rural Electrification – DDUGJY Scheme",
+                    "description": "SIPS awarded a contract for Execution of Rural Electrification works under Deendayal Upadhyaya Gram Jyoti Yojana (DDUGJY) scheme including construction of new 33/11 KV substations, HT/LT lines, and last mile connectivity works.",
+                    "client": "State Electricity Board",
+                    "category": "Distribution",
+                    "location": "Madhya Pradesh"
+                },
+                {
+                    "id": "proj-2022-002",
+                    "date": "August 05, 2022",
+                    "title": "Office Building Construction – ACB India Ltd",
+                    "description": "SIPS awarded a civil construction contract for Design, Supply and Construction of multi-storey office building with associated civil infrastructure for ACB (India) Ltd.",
+                    "client": "ACB (India) Ltd",
+                    "category": "Civil",
+                    "location": "Central India"
+                },
+                {
+                    "id": "proj-2022-003",
+                    "date": "April 12, 2022",
+                    "title": "220kV Transmission Line – Eastern Region",
+                    "description": "SIPS awarded a turnkey contract for construction of 220kV Double Circuit Transmission Line including tower fabrication, erection, stringing, and commissioning in the Eastern Region.",
+                    "client": "PGCIL",
+                    "category": "Transmission",
+                    "location": "Eastern Region"
+                }
+            ]
+        }
+    ]
+}

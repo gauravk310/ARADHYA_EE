@@ -34,7 +34,7 @@ export const navItems = [
             { label: "Distribution", href: "/services/distribution" },
         ],
     },
-
+    { label: "Reference", href: "/projects" },
     {
         label: "Investor",
         href: "#",
