@@ -3,7 +3,8 @@ import Navbar from "@/components/Navbar";
 import HeroSlider from "@/components/HeroSlider";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
-import ReferenceSection from "@/components/ReferenceSection";
+import LatestProjectsSection from "@/components/LatestProjectsSection";
+
 import ActivitiesSection from "@/components/ActivitiesSection";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
@@ -17,7 +18,8 @@ export default function Home() {
       <HeroSlider />
       <AboutSection />
       <ServicesSection />
-      <ReferenceSection />
+      <LatestProjectsSection />
+
       <ActivitiesSection />
       <CTABanner />
       <Footer />

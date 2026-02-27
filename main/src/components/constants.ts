@@ -27,9 +27,9 @@ export const navItems = [
     {
         label: "Services",
         href: "#services",
-        children: ["Transmission", "Railways", "Civil"],
+        children: ["Transmission", "Railways", "Civil", "Distribution"],
     },
-    { label: "Reference", href: "#reference" },
+
     {
         label: "Investor",
         href: "#",
@@ -84,6 +84,11 @@ export const services = [
         icon: "🏗️",
         label: "Civil",
         desc: "In its endeavour to diversify and gain expertise in construction industry, ARADHYA EE has forayed into the civil sector as well. The Company is engaged in Civil Works...",
+    },
+    {
+        icon: "🔌",
+        label: "Distribution",
+        desc: "ARADHYA EE provides end-to-end solutions in power distribution networks including HT/LT line construction, substation erection, underground cabling and rural electrification projects...",
     },
 ];
 
