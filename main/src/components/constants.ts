@@ -57,7 +57,7 @@ export const slides = [
         desc: "ARADHYA EE provides the concept to commissioning solutions of Turnkey Projects. Our EPC division offers comprehensive Engineering, Procurement and Construction services in areas of power Transmission & Distribution as well. The key...",
     },
     {
-        bg: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=1600&q=80",
+        bg: "/railways-hero.jpg",
         title: "Railways",
         desc: "Overhead Electrification works in Indian Railways. The company has commissioned Overhead Electrification Work for Northern Railways and continues to grow in this critical infrastructure domain.",
     },

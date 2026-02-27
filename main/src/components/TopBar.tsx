@@ -38,7 +38,7 @@ const styles: Record<string, React.CSSProperties> = {
 const contactItems = [
     { icon: <Mail size={16} />, text: "info@aradhyaee.com" },
     { icon: <Phone size={16} />, text: "+91-124-6913000" },
-    { icon: <MapPin size={16} />, text: "Signature Tower, Gurugram" },
+    { icon: <MapPin size={16} />, text: "Kuranwadi , Solapur" },
 ];
 
 const socialLinks = [

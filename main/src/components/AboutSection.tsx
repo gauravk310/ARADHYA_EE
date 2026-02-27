@@ -95,18 +95,18 @@ const features = [
 
 const aboutImages = [
     {
-        src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
-        alt: "Transmission",
+        src: "/about-1.jpg",
+        alt: "Safety Training Session",
         wide: false,
     },
     {
-        src: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&q=80",
-        alt: "Electrical Work",
+        src: "/about-2.jpg",
+        alt: "Team Briefing",
         wide: false,
     },
     {
-        src: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400&q=80",
-        alt: "Railways",
+        src: "/about-3.jpg",
+        alt: "Safety Awareness Program",
         wide: false,
     },
     {
