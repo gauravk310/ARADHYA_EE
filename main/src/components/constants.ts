@@ -18,11 +18,16 @@ export const COLORS = {
 
 // Navigation items
 export const navItems = [
-    { label: "Home", href: "#home" },
+    { label: "Home", href: "/" },
     {
         label: "About Us",
         href: "#about",
-        children: ["Company Profile", "Vision & Mission", "Message from MD", "Leadership"],
+        children: [
+            { label: "Company Profile", href: "/about/profile" },
+            { label: "Vision & Mission", href: "/about/vision-mission" },
+            { label: "Message from MD", href: "#" },
+            { label: "Leadership", href: "#" },
+        ],
     },
     {
         label: "Services",
