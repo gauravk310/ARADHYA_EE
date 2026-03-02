@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { COLORS, navItems } from "./constants";
 
 const styles: Record<string, React.CSSProperties> = {
@@ -150,9 +151,23 @@ function NavItem({ item, active, onActivate }: NavItemProps) {
 }
 
 export default function Navbar() {
+    const pathname = usePathname();
     const [activeNav, setActiveNav] = useState("Home");
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        // Find which nav item corresponds to the current path
+        const currentItem = navItems.find(item => {
+            if (item.href === "/" && pathname === "/") return true;
+            if (item.href !== "/" && pathname.startsWith(item.href)) return true;
+            return false;
+        });
+
+        if (currentItem) {
+            setActiveNav(currentItem.label);
+        }
+    }, [pathname]);
 
     useEffect(() => {
         const check = () => setIsMobile(window.innerWidth < 900);

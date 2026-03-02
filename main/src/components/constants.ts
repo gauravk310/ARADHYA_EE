@@ -21,7 +21,7 @@ export const navItems = [
     { label: "Home", href: "/" },
     {
         label: "About Us",
-        href: "#about",
+        href: "/about",
         children: [
             { label: "Company Profile", href: "/about/profile" },
             { label: "Vision & Mission", href: "/about/vision-mission" },
@@ -31,7 +31,7 @@ export const navItems = [
     },
     {
         label: "Services",
-        href: "#services",
+        href: "/services",
         children: [
             { label: "Transmission", href: "/services/transmission" },
             { label: "Railways", href: "/services/railways" },
@@ -39,11 +39,14 @@ export const navItems = [
             { label: "Distribution", href: "/services/distribution" },
         ],
     },
-    { label: "Reference", href: "/projects" },
+    { label: "Reference", href: "/reference" },
     {
         label: "Investor",
         href: "#",
-        children: ["Financial Results", "Annual Reports", "Shareholding Pattern"],
+        children: [
+            { label: "Investor Relations", href: "/investor/relations" },
+            { label: "Corporate Governance", href: "/investor/governance" },
+        ],
     },
     { label: "Media", href: "#", children: ["News", "Gallery"] },
     {

@@ -129,7 +129,7 @@ export default function ServiceDetailPage() {
                         </Link>
                         <span style={{ color: COLORS.orange }}>›</span>
                         <Link
-                            href="/#services"
+                            href="/services"
                             style={{
                                 color: "rgba(255,255,255,0.7)",
                                 textDecoration: "none",
