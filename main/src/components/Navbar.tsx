@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { COLORS, navItems } from "./constants";
 
@@ -184,44 +185,46 @@ export default function Navbar() {
             }}
         >
             {/* LOGO */}
-            <div style={styles.logoArea}>
-                {/* ARADHYA ELECTRICALS & ENTERPRISES Logo */}
-                <svg width="52" height="52" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="gearGrad" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stopColor="#1a9baa" />
-                            <stop offset="100%" stopColor="#0d6e7a" />
-                        </linearGradient>
-                        <linearGradient id="boltGrad" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stopColor="#f5a623" />
-                            <stop offset="50%" stopColor="#e8621a" />
-                            <stop offset="100%" stopColor="#f5a623" />
-                        </linearGradient>
-                        <linearGradient id="centerGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#f5c842" />
-                            <stop offset="100%" stopColor="#e8621a" />
-                        </linearGradient>
-                    </defs>
-                    {/* Gear teeth */}
-                    <path d="M60 8 L65 2 L70 8 L70 14 Q80 16 88 22 L94 18 L100 22 L96 28 Q102 36 104 46 L110 48 L110 54 L104 56 Q102 66 96 74 L100 80 L94 84 L88 80 Q80 86 70 88 L70 94 L65 100 L60 94 L60 88 Q50 86 42 80 L36 84 L30 80 L34 74 Q28 66 26 56 L20 54 L20 48 L26 46 Q28 36 34 28 L30 22 L36 18 L42 22 Q50 16 60 14 Z" fill="url(#gearGrad)" />
-                    {/* Inner circle cutout */}
-                    <circle cx="60" cy="51" r="32" fill="white" />
-                    {/* Gear inner ring */}
-                    <circle cx="60" cy="51" r="32" fill="none" stroke="url(#gearGrad)" strokeWidth="5" />
-                    {/* Lightning bolt - left arrow */}
-                    <polygon points="38,51 55,28 55,45 72,45 55,74 55,57" fill="url(#boltGrad)" />
-                    {/* Lightning bolt - right arrow (mirrored) */}
-                    <polygon points="82,51 65,28 65,45 48,45 65,74 65,57" fill="url(#boltGrad)" opacity="0.85" />
-                    {/* Center vertical stripe */}
-                    <rect x="57" y="24" width="6" height="54" rx="2" fill="url(#centerGrad)" />
-                </svg>
-                <div style={styles.logoText}>
-                    <span style={{ color: "#0d6e7a" }}>ARADHYA</span>{" "}
-                    <span style={{ color: "#0d6e7a" }}>ELECTRICALS</span>
-                    <br />
-                    <span style={{ color: "#e8621a", fontSize: 13 }}>&amp; ENTERPRISES</span>
+            <Link href="/" style={{ textDecoration: "none" }}>
+                <div style={styles.logoArea}>
+                    {/* ARADHYA ELECTRICALS & ENTERPRISES Logo */}
+                    <svg width="52" height="52" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="gearGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stopColor="#1a9baa" />
+                                <stop offset="100%" stopColor="#0d6e7a" />
+                            </linearGradient>
+                            <linearGradient id="boltGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stopColor="#f5a623" />
+                                <stop offset="50%" stopColor="#e8621a" />
+                                <stop offset="100%" stopColor="#f5a623" />
+                            </linearGradient>
+                            <linearGradient id="centerGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="#f5c842" />
+                                <stop offset="100%" stopColor="#e8621a" />
+                            </linearGradient>
+                        </defs>
+                        {/* Gear teeth */}
+                        <path d="M60 8 L65 2 L70 8 L70 14 Q80 16 88 22 L94 18 L100 22 L96 28 Q102 36 104 46 L110 48 L110 54 L104 56 Q102 66 96 74 L100 80 L94 84 L88 80 Q80 86 70 88 L70 94 L65 100 L60 94 L60 88 Q50 86 42 80 L36 84 L30 80 L34 74 Q28 66 26 56 L20 54 L20 48 L26 46 Q28 36 34 28 L30 22 L36 18 L42 22 Q50 16 60 14 Z" fill="url(#gearGrad)" />
+                        {/* Inner circle cutout */}
+                        <circle cx="60" cy="51" r="32" fill="white" />
+                        {/* Gear inner ring */}
+                        <circle cx="60" cy="51" r="32" fill="none" stroke="url(#gearGrad)" strokeWidth="5" />
+                        {/* Lightning bolt - left arrow */}
+                        <polygon points="38,51 55,28 55,45 72,45 55,74 55,57" fill="url(#boltGrad)" />
+                        {/* Lightning bolt - right arrow (mirrored) */}
+                        <polygon points="82,51 65,28 65,45 48,45 65,74 65,57" fill="url(#boltGrad)" opacity="0.85" />
+                        {/* Center vertical stripe */}
+                        <rect x="57" y="24" width="6" height="54" rx="2" fill="url(#centerGrad)" />
+                    </svg>
+                    <div style={styles.logoText}>
+                        <span style={{ color: "#0d6e7a" }}>ARADHYA</span>{" "}
+                        <span style={{ color: "#0d6e7a" }}>ELECTRICALS</span>
+                        <br />
+                        <span style={{ color: "#e8621a", fontSize: 13 }}>&amp; ENTERPRISES</span>
+                    </div>
                 </div>
-            </div>
+            </Link>
 
             {/* Mobile hamburger */}
             {isMobile && (
