@@ -56,19 +56,8 @@ export const navItems = [
             { label: "Gallery", href: "/media/gallery" },
         ],
     },
-    {
-        label: "Careers",
-        href: "#",
-        children: [
-            { label: "Why AEE", href: "/careers/why-aee" },
-            { label: "Life at ARADHYA EE", href: "#" },
-        ],
-    },
-    {
-        label: "Contact",
-        href: "#",
-        children: ["Contact Us", "Locations"],
-    },
+    { label: "Why AEE", href: "/careers/why-aee" },
+    { label: "Contact Us", href: "/contact/contact-us" },
     { label: "ESS Portal", href: "#" },
 ];
 
