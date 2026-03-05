@@ -58,7 +58,6 @@ export const navItems = [
     },
     { label: "Why AEE", href: "/careers/why-aee" },
     { label: "Contact Us", href: "/contact/contact-us" },
-    { label: "ESS Portal", href: "#" },
 ];
 
 // Hero slides
