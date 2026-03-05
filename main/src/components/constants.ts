@@ -59,7 +59,10 @@ export const navItems = [
     {
         label: "Careers",
         href: "#",
-        children: ["Current Openings", "Life at ARADHYA EE"],
+        children: [
+            { label: "Why AEE", href: "/careers/why-aee" },
+            { label: "Life at ARADHYA EE", href: "#" },
+        ],
     },
     {
         label: "Contact",
