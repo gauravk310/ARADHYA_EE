@@ -110,8 +110,8 @@ const aboutImages = [
         wide: false,
     },
     {
-        src: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
-        alt: "Civil Construction",
+        src: "/about-bottom.jpg",
+        alt: "Electrical Substation",
         wide: true,
     },
 ];

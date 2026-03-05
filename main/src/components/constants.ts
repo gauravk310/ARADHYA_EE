@@ -63,19 +63,19 @@ export const navItems = [
 // Hero slides
 export const slides = [
     {
-        bg: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80",
+        bg: "/railways-hero.jpg",
         title: "Transmission",
         slug: "transmission",
         desc: "ARADHYA EE provides the concept to commissioning solutions of Turnkey Projects. Our EPC division offers comprehensive Engineering, Procurement and Construction services in areas of power Transmission & Distribution as well. The key...",
     },
     {
-        bg: "/railways-hero.jpg",
+        bg: "/Gallary/img6.jpeg",
         title: "Railways",
         slug: "railways",
         desc: "Overhead Electrification works in Indian Railways. The company has commissioned Overhead Electrification Work for Northern Railways and continues to grow in this critical infrastructure domain.",
     },
     {
-        bg: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80",
+        bg: "/Gallary/img1.jpeg",
         title: "Civil Infrastructure",
         slug: "civil",
         desc: "In its endeavour to diversify and gain expertise in construction industry, ARADHYA EE has forayed into the civil sector as well. The Company is engaged in Civil Works of national importance.",
@@ -121,7 +121,7 @@ export const serviceDetails: Record<string, {
     transmission: {
         title: "Transmission",
         slug: "transmission",
-        bannerImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+        bannerImage: "/railways-hero.jpg",
         paragraphs: [
             "ARADHYA EE provides concept to commissioning solutions of Turnkey Projects. Our EPC division offers comprehensive Engineering, Procurement and Construction services in areas of Power Transmission & Distribution.",
             "Transmission forms a critical link in the power sector's value chain. India's power generation capacities are unevenly dispersed across the country, creating a need for a robust transmission network. ARADHYA EE is committed to strengthening the nation's power transmission backbone.",
@@ -140,7 +140,7 @@ export const serviceDetails: Record<string, {
     railways: {
         title: "Railways",
         slug: "railways",
-        bannerImage: "/railways-hero.jpg",
+        bannerImage: "/Gallary/img6.jpeg",
         paragraphs: [
             "ARADHYA EE has emerged as a key player in the Indian Railways electrification sector. The company has been engaged in Overhead Electrification (OHE) works for Indian Railways, contributing to the nation's ambitious railway electrification program.",
             "The company has commissioned Overhead Electrification Work for Northern Railways and continues to grow in this critical infrastructure domain. Our Railway Electrification division undertakes end-to-end OHE works including design, supply, erection, testing and commissioning.",
@@ -159,7 +159,7 @@ export const serviceDetails: Record<string, {
     civil: {
         title: "Civil",
         slug: "civil",
-        bannerImage: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80",
+        bannerImage: "/Gallary/img1.jpeg",
         paragraphs: [
             "In its endeavour to diversify and gain expertise in the construction industry, ARADHYA EE has forayed into the civil infrastructure sector as well.",
             "The Company is engaged in Civil Infrastructure Works which includes Design, Survey, Supply, Construction of different category of Quarters, Construction of Warehouses, Roads, Water Pipelines, Office Building for MP Warehousing & Logistic Corporation (MPWLC), ACB(India)Ltd, TRN Energy Pvt Ltd etc.",
@@ -199,17 +199,23 @@ export const serviceDetails: Record<string, {
 // Activities
 export const activities = [
     {
-        img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80",
+        img: "/Gallary/img2.jpeg",
         title:
-            "Welcoming the New Year Together: A Celebration of Joy, Teamwork, and New Beginnings",
+            "Transmission Line Construction: High-Voltage Tower Erection & Stringing Across Challenging Terrains",
     },
     {
-        img: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&q=80",
+        img: "/Gallary/img1.jpeg",
         title:
-            "Celebrating Christmas Together: A Festive Day of Team Spirit and Joy at the Workplace",
+            "On-Site Safety Training: Ensuring Workplace Safety Standards Across All Project Sites",
     },
     {
-        img: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&q=80",
-        title: "Blood Donation Camp on the Occasion of Founder's Day",
+        img: "/Gallary/img3.jpeg",
+        title:
+            "Substation Commissioning: Successful Installation & Testing of Power Transformers",
+    },
+    {
+        img: "/Gallary/img4.jpeg",
+        title:
+            "Safety Awareness Program: Team Pledge for Zero Accident Work Culture",
     },
 ];

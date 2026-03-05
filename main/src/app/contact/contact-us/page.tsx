@@ -129,20 +129,20 @@ export default function ContactUsPage() {
                             Regd. Office
                         </h2>
                         <p style={{ fontSize: 15, lineHeight: 1.8, color: "#555", marginBottom: 16 }}>
-                            Kuranwadi, Solapur,<br />
-                            Maharashtra – 413216
+                            House No 20/1/292, Kuranwadi, Mohol,<br />
+                            Tal Mohol, Solapur, Maharashtra – 413214
                         </p>
                         <ul style={{ listStyle: "none", padding: 0, margin: 0, lineHeight: 2, color: "#555", fontSize: 15 }}>
                             <li>
                                 <span style={{ color: COLORS.teal, marginRight: 8 }}>✉</span>
-                                <a href="mailto:hr@aradhyaee.com" style={{ color: COLORS.teal, textDecoration: "none" }}>
-                                    hr@aradhyaee.com
+                                <a href="mailto:balajisalgude@gmail.com" style={{ color: COLORS.teal, textDecoration: "none" }}>
+                                    balajisalgude@gmail.com
                                 </a>
                             </li>
                             <li>
                                 <span style={{ color: COLORS.teal, marginRight: 8 }}>✉</span>
-                                <a href="mailto:info@aradhyaee.com" style={{ color: COLORS.teal, textDecoration: "none" }}>
-                                    info@aradhyaee.com
+                                <a href="mailto:balajisalgude@gmail.com" style={{ color: COLORS.teal, textDecoration: "none" }}>
+                                    balajisalgude@gmail.com
                                 </a>
                             </li>
                             <li>
@@ -171,14 +171,14 @@ export default function ContactUsPage() {
                             Corporate Office
                         </h2>
                         <p style={{ fontSize: 15, lineHeight: 1.8, color: "#555", marginBottom: 16 }}>
-                            Kuranwadi, Solapur,<br />
-                            Maharashtra – 413216
+                            House No 20/1/292, Kuranwadi, Mohol,<br />
+                            Tal Mohol, Solapur, Maharashtra – 413214
                         </p>
                         <ul style={{ listStyle: "none", padding: 0, margin: 0, lineHeight: 2, color: "#555", fontSize: 15 }}>
                             <li>
                                 <span style={{ color: COLORS.orange, marginRight: 8 }}>✉</span>
-                                <a href="mailto:corporate@aradhyaee.com" style={{ color: COLORS.teal, textDecoration: "none" }}>
-                                    corporate@aradhyaee.com
+                                <a href="mailto:balajisalgude@gmail.com" style={{ color: COLORS.teal, textDecoration: "none" }}>
+                                    balajisalgude@gmail.com
                                 </a>
                             </li>
                             <li>

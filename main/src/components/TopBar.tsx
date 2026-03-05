@@ -36,9 +36,9 @@ const styles: Record<string, React.CSSProperties> = {
 };
 
 const contactItems = [
-    { icon: <Mail size={16} />, text: "info@aradhyaee.com" },
+    { icon: <Mail size={16} />, text: "balajisalgude@gmail.com" },
     { icon: <Phone size={16} />, text: "+91 99214 46398" },
-    { icon: <MapPin size={16} />, text: "Kuranwadi , Solapur" },
+    { icon: <MapPin size={16} />, text: "House No 20/1/292, Kuranwadi, Mohol, Solapur - 413214" },
 ];
 
 const socialLinks = [
