@@ -48,7 +48,14 @@ export const navItems = [
             { label: "Corporate Governance", href: "/investor/governance" },
         ],
     },
-    { label: "Media", href: "#", children: ["News", "Gallery"] },
+    {
+        label: "Media",
+        href: "#",
+        children: [
+            { label: "Projects", href: "/media/projects" },
+            { label: "Gallery", href: "/media/gallery" },
+        ],
+    },
     {
         label: "Careers",
         href: "#",
