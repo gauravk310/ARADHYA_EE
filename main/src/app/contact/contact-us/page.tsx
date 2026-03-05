@@ -147,8 +147,8 @@ export default function ContactUsPage() {
                             </li>
                             <li>
                                 <span style={{ color: COLORS.teal, marginRight: 8 }}>📞</span>
-                                <a href="tel:+911126412345" style={{ color: "#555", textDecoration: "none" }}>
-                                    +91-11-2641-2345
+                                <a href="tel:+919921446398" style={{ color: "#555", textDecoration: "none" }}>
+                                    +91 99214 46398
                                 </a>
                             </li>
                         </ul>
@@ -183,8 +183,8 @@ export default function ContactUsPage() {
                             </li>
                             <li>
                                 <span style={{ color: COLORS.orange, marginRight: 8 }}>📞</span>
-                                <a href="tel:+911246913000" style={{ color: "#555", textDecoration: "none" }}>
-                                    +91-124-691-3000
+                                <a href="tel:+919921446398" style={{ color: "#555", textDecoration: "none" }}>
+                                    +91 99214 46398
                                 </a>
                             </li>
                         </ul>

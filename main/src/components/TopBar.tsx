@@ -37,7 +37,7 @@ const styles: Record<string, React.CSSProperties> = {
 
 const contactItems = [
     { icon: <Mail size={16} />, text: "info@aradhyaee.com" },
-    { icon: <Phone size={16} />, text: "+91-124-6913000" },
+    { icon: <Phone size={16} />, text: "+91 99214 46398" },
     { icon: <MapPin size={16} />, text: "Kuranwadi , Solapur" },
 ];
 
