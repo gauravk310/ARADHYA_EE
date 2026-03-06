@@ -129,10 +129,10 @@ export default function InvestorRelationsPage() {
                             Regd. Office :
                         </h3>
                         <p style={{ lineHeight: 1.8, color: "#666", fontSize: 14 }}>
-                            129, Transport Centre, Rohtak Road, Punjabi Bagh, New Delhi-110035<br />
-                            Tel: +91-11-47634400<br />
-                            Fax: +91-11-47634423<br />
-                            Email ID: info@shyamindus.com
+                            House No 20/1/292, Kuranwadi, Mohol,<br />
+                            Solapur - 413214, Maharashtra, India<br />
+                            Tel: +91 99214 46398<br />
+                            Email ID: balajisalgude@gmail.com
                         </p>
                     </div>
 
@@ -148,9 +148,10 @@ export default function InvestorRelationsPage() {
                             Corporate Office:
                         </h3>
                         <p style={{ lineHeight: 1.8, color: "#666", fontSize: 14 }}>
-                            602, 6th Floor, Tower A, Signature Tower, South City-1, Gurugram, Haryana-122001.<br />
-                            Tel: +91-124-6913000<br /><br />
-                            Email ID: info@shyamindus.com
+                            House No 20/1/292, Kuranwadi, Mohol,<br />
+                            Solapur - 413214, Maharashtra, India<br />
+                            Tel: +91 99214 46398<br />
+                            Email ID: balajisalgude@gmail.com
                         </p>
                     </div>
                 </div>

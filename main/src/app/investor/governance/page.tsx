@@ -142,13 +142,8 @@ export default function CorporateGovernancePage() {
                             <tbody>
                                 <tr style={{ background: "#fdfdfd" }}>
                                     <td style={{ padding: "12px 15px", border: "1px solid #ddd" }}>1</td>
-                                    <td style={{ padding: "12px 15px", border: "1px solid #ddd" }}>Major Satya Pal Sindhu (Retd)</td>
+                                    <td style={{ padding: "12px 15px", border: "1px solid #ddd" }}>Balaji Ankush Salgude</td>
                                     <td style={{ padding: "12px 15px", border: "1px solid #ddd" }}>Managing Director</td>
-                                </tr>
-                                <tr style={{ background: "#fff" }}>
-                                    <td style={{ padding: "12px 15px", border: "1px solid #ddd" }}>2</td>
-                                    <td style={{ padding: "12px 15px", border: "1px solid #ddd" }}>Ms. Saroj Sindhu</td>
-                                    <td style={{ padding: "12px 15px", border: "1px solid #ddd" }}>Director</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -209,9 +209,10 @@ export default function MessageFromMDPage() {
                         <div style={{ marginTop: 50 }}>
                             <p style={{ margin: 0, fontWeight: 500 }}>With Warm Regards,</p>
                             <p style={{ margin: "5px 0", fontWeight: 700, fontSize: 18, color: "#333" }}>
-                                Managing Director
+                                Balaji Ankush Salgude
                             </p>
-                            <p style={{ margin: 0, fontWeight: 600 }}>ARADHYA ELECTRICALS &amp; ENTERPRISES</p>
+                            <p style={{ margin: 0, fontWeight: 600 }}>Managing Director</p>
+                            <p style={{ margin: 0 }}>ARADHYA ELECTRICALS &amp; ENTERPRISES</p>
                             <p style={{ margin: "15px 0 0 0", fontWeight: 700, color: COLORS.navy }}>Jai Hind</p>
                         </div>
                     </div>
