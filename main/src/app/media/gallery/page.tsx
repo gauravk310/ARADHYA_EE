@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { COLORS } from "@/components/constants";
 import { useAuth } from "@/context/AuthContext";
+import ConfirmationModal from "@/components/ConfirmationModal";
 
 // ── Types ────────────────────────────────────────────────────────────────────
 interface GalleryImage {
@@ -1069,136 +1070,14 @@ export default function GalleryPage() {
                 </div>
             )}
 
-            {/* ── Delete Confirmation Modal ── */}
-            {idToDelete !== null && (
-                <div
-                    onClick={() => setIdToDelete(null)}
-                    style={{
-                        position: "fixed",
-                        inset: 0,
-                        background: "rgba(10,20,35,0.75)",
-                        zIndex: 9999,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        padding: 20,
-                        backdropFilter: "blur(4px)",
-                        animation: "fadeIn 0.2s ease",
-                    }}
-                >
-                    <div
-                        onClick={(e) => e.stopPropagation()}
-                        style={{
-                            background: "#fff",
-                            borderRadius: 16,
-                            width: "100%",
-                            maxWidth: 400,
-                            boxShadow: "0 24px 64px rgba(0,0,0,0.35)",
-                            overflow: "hidden",
-                            textAlign: "center",
-                            padding: "32px 28px",
-                        }}
-                    >
-                        <div style={{
-                            width: 64,
-                            height: 64,
-                            background: "#fff0f0",
-                            borderRadius: "50%",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            fontSize: 32,
-                            margin: "0 auto 20px",
-                            color: "#e74c3c"
-                        }}>
-                            🗑️
-                        </div>
-
-                        <h3 style={{
-                            margin: "0 0 10px",
-                            fontSize: 20,
-                            fontWeight: 700,
-                            color: COLORS.navy,
-                            fontFamily: "'Arial',sans-serif",
-                        }}>
-                            Confirm Deletion
-                        </h3>
-
-                        <p style={{
-                            margin: "0 0 28px",
-                            fontSize: 14,
-                            color: "#666",
-                            lineHeight: 1.5,
-                            fontFamily: "'Arial',sans-serif",
-                        }}>
-                            Are you sure you want to delete this image? This action cannot be undone.
-                        </p>
-
-                        <div style={{ display: "flex", gap: 12 }}>
-                            <button
-                                onClick={() => setIdToDelete(null)}
-                                disabled={isDeleting}
-                                style={{
-                                    flex: 1,
-                                    padding: "12px 0",
-                                    borderRadius: 8,
-                                    border: "1.5px solid #dde3e8",
-                                    background: "#fff",
-                                    color: "#555",
-                                    fontSize: 14,
-                                    fontWeight: 600,
-                                    cursor: isDeleting ? "not-allowed" : "pointer",
-                                    fontFamily: "'Arial',sans-serif",
-                                    transition: "background 0.2s",
-                                }}
-                                onMouseEnter={(e) => { if (!isDeleting) (e.currentTarget as HTMLElement).style.background = "#f5f7f9"; }}
-                                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#fff"; }}
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                onClick={confirmDelete}
-                                disabled={isDeleting}
-                                style={{
-                                    flex: 1,
-                                    padding: "12px 0",
-                                    borderRadius: 8,
-                                    border: "none",
-                                    background: isDeleting ? "#aaa" : "#e74c3c",
-                                    color: "#fff",
-                                    fontSize: 14,
-                                    fontWeight: 700,
-                                    cursor: isDeleting ? "not-allowed" : "pointer",
-                                    fontFamily: "'Arial',sans-serif",
-                                    boxShadow: isDeleting ? "none" : "0 4px 12px rgba(231, 76, 60, 0.25)",
-                                    transition: "background 0.2s",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    gap: 8,
-                                }}
-                                onMouseEnter={(e) => { if (!isDeleting) (e.currentTarget as HTMLElement).style.background = "#c0392b"; }}
-                                onMouseLeave={(e) => { if (!isDeleting) (e.currentTarget as HTMLElement).style.background = "#e74c3c"; }}
-                            >
-                                {isDeleting ? (
-                                    <>
-                                        <span style={{
-                                            display: "inline-block",
-                                            width: 14,
-                                            height: 14,
-                                            border: "2px solid rgba(255,255,255,0.4)",
-                                            borderTopColor: "#fff",
-                                            borderRadius: "50%",
-                                            animation: "spin 0.7s linear infinite",
-                                        }} />
-                                        Deleting...
-                                    </>
-                                ) : "Delete Image"}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
+            <ConfirmationModal
+                isOpen={idToDelete !== null}
+                title="Delete Image"
+                message="Are you sure you want to delete this image? This action cannot be undone."
+                confirmText={isDeleting ? "Deleting..." : "Delete Image"}
+                onConfirm={confirmDelete}
+                onCancel={() => setIdToDelete(null)}
+            />
 
             {/* ── Notification (Toast) ── */}
             {notification && (

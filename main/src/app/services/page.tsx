@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { COLORS } from "@/components/constants";
 import { useAuth } from "@/context/AuthContext";
+import ConfirmationModal from "@/components/ConfirmationModal";
 
 interface PageContent {
     intro1: string;
@@ -43,6 +44,7 @@ export default function ServicesPage() {
     const [editData, setEditData] = useState<PageContent>(DEFAULT_PAGE_CONTENT);
     const [saving, setSaving] = useState(false);
     const [saveMsg, setSaveMsg] = useState("");
+    const [deleteBulletIdx, setDeleteBulletIdx] = useState<number | null>(null);
 
     useEffect(() => {
         fetch("/data/services.json")
@@ -74,9 +76,21 @@ export default function ServicesPage() {
         setEditData({ ...editData, bulletPoints: [...editData.bulletPoints, ""] });
     };
 
-    const removeBullet = (idx: number) => {
-        const updated = editData.bulletPoints.filter((_, i) => i !== idx);
+    const confirmRemoveBullet = () => {
+        if (deleteBulletIdx === null) return;
+        const updated = editData.bulletPoints.filter((_, i) => i !== deleteBulletIdx);
         setEditData({ ...editData, bulletPoints: updated });
+        setDeleteBulletIdx(null);
+    };
+
+    const removeBullet = (idx: number) => {
+        // Only confirm if it's not empty
+        if (editData.bulletPoints[idx].trim() === "") {
+            const updated = editData.bulletPoints.filter((_, i) => i !== idx);
+            setEditData({ ...editData, bulletPoints: updated });
+        } else {
+            setDeleteBulletIdx(idx);
+        }
     };
 
     const handleSave = async () => {
@@ -387,6 +401,15 @@ export default function ServicesPage() {
 
             <Footer />
             <ScrollToTop />
+
+            <ConfirmationModal
+                isOpen={deleteBulletIdx !== null}
+                title="Remove Bullet Point"
+                message="Are you sure you want to remove this bullet point? This will delete its content from the list."
+                confirmText="Remove"
+                onConfirm={confirmRemoveBullet}
+                onCancel={() => setDeleteBulletIdx(null)}
+            />
 
             {/* ── Edit Modal ── */}
             {showEditModal && (

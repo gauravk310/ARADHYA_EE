@@ -1,31 +1,21 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { COLORS } from "@/components/constants";
+import { useAuth } from "@/context/AuthContext";
+import ConfirmationModal from "@/components/ConfirmationModal";
 
-const clients = [
-    { name: "Power Grid Corporation of India Ltd", short: "POWERGRID", icon: "⚡", category: "Transmission" },
-    { name: "Indian Railways", short: "Indian Railways", icon: "🚆", category: "Railways" },
-    { name: "Northern Railway", short: "Northern Railway", icon: "🚆", category: "Railways" },
-    { name: "Larsen & Toubro Limited", short: "L&T", icon: "🏗️", category: "Construction" },
-    { name: "Kalpataru Power Transmission Ltd", short: "Kalpataru", icon: "⚡", category: "Transmission" },
-    { name: "Texmaco Rail & Engineering Ltd", short: "Texmaco", icon: "🚆", category: "Railways" },
-    { name: "Delhi Metro Rail Corporation", short: "DMRC", icon: "🚇", category: "Railways" },
-    { name: "TP Central Odisha Distribution Ltd", short: "TPCODL", icon: "🔌", category: "Distribution" },
-    { name: "TP Western Odisha Distribution Ltd", short: "TPWODL", icon: "🔌", category: "Distribution" },
-    { name: "TP Southern Odisha Distribution Ltd", short: "TPSODL", icon: "🔌", category: "Distribution" },
-    { name: "South East Central Railway", short: "SECR", icon: "🚆", category: "Railways" },
-    { name: "South Eastern Railway", short: "SER", icon: "🚆", category: "Railways" },
-    { name: "North Eastern Railway", short: "NER", icon: "🚆", category: "Railways" },
-    { name: "Industrial Development Corporation of Odisha", short: "IDCO", icon: "🏗️", category: "Civil" },
-    { name: "ACB (India) Ltd", short: "ACB India", icon: "🏗️", category: "Civil" },
-    { name: "MP Warehousing & Logistic Corporation", short: "MPWLC", icon: "🏗️", category: "Civil" },
-];
+interface Client {
+    name: string;
+    short: string;
+    icon: string;
+    category: string;
+}
 
 const categoryColors: Record<string, string> = {
     Transmission: "#0d6e7a",
@@ -36,6 +26,79 @@ const categoryColors: Record<string, string> = {
 };
 
 export default function ReferencePage() {
+    const { isLoggedIn } = useAuth();
+    const [clients, setClients] = useState<Client[]>([]);
+    const [showModal, setShowModal] = useState(false);
+    const [editIdx, setEditIdx] = useState<number | null>(null);
+    const [formData, setFormData] = useState<Client>({ name: "", short: "", icon: "⚡", category: "Transmission" });
+    const [saving, setSaving] = useState(false);
+    const [deleteIdx, setDeleteIdx] = useState<number | null>(null);
+
+    useEffect(() => {
+        fetch("/data/references.json")
+            .then(r => r.json())
+            .then(d => {
+                if (d.clients) setClients(d.clients);
+            })
+            .catch(e => console.error(e));
+    }, []);
+
+    const openAdd = () => {
+        setEditIdx(null);
+        setFormData({ name: "", short: "", icon: "⚡", category: "Transmission" });
+        setShowModal(true);
+    };
+
+    const openEdit = (idx: number) => {
+        setEditIdx(idx);
+        setFormData(clients[idx]);
+        setShowModal(true);
+    };
+
+    const confirmDelete = async () => {
+        if (deleteIdx === null) return;
+        const newClients = clients.filter((_, i) => i !== deleteIdx);
+        await saveClients(newClients);
+        setDeleteIdx(null);
+    };
+
+    const handleDelete = (idx: number) => {
+        setDeleteIdx(idx);
+    };
+
+    const handleSave = async () => {
+        let newClients = [...clients];
+        if (editIdx !== null) {
+            newClients[editIdx] = formData;
+        } else {
+            newClients.push(formData);
+        }
+        await saveClients(newClients);
+        setShowModal(false);
+    };
+
+    const saveClients = async (newClients: Client[]) => {
+        setSaving(true);
+        try {
+            const res = await fetch("/data/references.json");
+            const fullJson = await res.json();
+            fullJson.clients = newClients;
+
+            const saveRes = await fetch("/api/save-json", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ filename: "references.json", data: fullJson })
+            });
+
+            if (saveRes.ok) {
+                setClients(newClients);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+        setSaving(false);
+    };
+
     return (
         <main
             style={{
@@ -122,6 +185,29 @@ export default function ReferencePage() {
                 </div>
             </section>
 
+            {/* ── Admin Toolbar ── */}
+            {isLoggedIn && (
+                <div style={{ background: '#fff8f4', borderBottom: `2px solid ${COLORS.orange}`, padding: '15px 40px' }}>
+                    <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <span style={{ fontWeight: 700, color: COLORS.orange }}>ADMIN PANEL - REFERENCES</span>
+                        <button
+                            onClick={openAdd}
+                            style={{
+                                padding: '10px 20px',
+                                background: COLORS.orange,
+                                color: '#fff',
+                                border: 'none',
+                                borderRadius: 6,
+                                cursor: 'pointer',
+                                fontWeight: 700
+                            }}
+                        >
+                            + Add New Client
+                        </button>
+                    </div>
+                </div>
+            )}
+
             {/* ── References Grid ── */}
             <section
                 style={{
@@ -183,10 +269,10 @@ export default function ReferencePage() {
                                         minHeight: 200,
                                         transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                                         boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
-                                        cursor: 'pointer',
                                         position: 'relative',
                                         overflow: 'hidden',
-                                        animationDelay: `${index * 0.06}s`,
+                                        animationDelay: `${index * 0.05}s`,
+                                        cursor: 'default'
                                     }}
                                     onMouseEnter={(e) => {
                                         (e.currentTarget as HTMLElement).style.transform = "translateY(-8px) scale(1.02)";
@@ -199,6 +285,13 @@ export default function ReferencePage() {
                                         (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,0,0,0.06)";
                                     }}
                                 >
+                                    {isLoggedIn && (
+                                        <div style={{ position: 'absolute', top: 10, right: 10, display: 'flex', gap: 5, zIndex: 10 }}>
+                                            <button onClick={(e) => { e.stopPropagation(); openEdit(index); }} style={{ padding: '4px 8px', background: COLORS.teal, color: '#fff', border: 'none', borderRadius: 4, cursor: 'pointer', fontSize: 10 }}>Edit</button>
+                                            <button onClick={(e) => { e.stopPropagation(); handleDelete(index); }} style={{ padding: '4px 8px', background: '#e74c3c', color: '#fff', border: 'none', borderRadius: 4, cursor: 'pointer', fontSize: 10 }}>Del</button>
+                                        </div>
+                                    )}
+
                                     {/* Top accent bar */}
                                     <div style={{
                                         position: 'absolute',
@@ -271,6 +364,51 @@ export default function ReferencePage() {
 
             <Footer />
             <ScrollToTop />
+
+            {/* ── Edit/Add Modal ── */}
+            {showModal && (
+                <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', zIndex: 10000, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ background: '#fff', padding: 30, borderRadius: 8, width: 400 }}>
+                        <h3 style={{ marginBottom: 20 }}>{editIdx !== null ? "Edit Client" : "Add New Client"}</h3>
+                        <div style={{ marginBottom: 15 }}>
+                            <label style={{ display: 'block', fontSize: 12, marginBottom: 5 }}>Short Name</label>
+                            <input value={formData.short} onChange={e => setFormData({ ...formData, short: e.target.value })} style={{ width: '100%', padding: 8 }} />
+                        </div>
+                        <div style={{ marginBottom: 15 }}>
+                            <label style={{ display: 'block', fontSize: 12, marginBottom: 5 }}>Full Name</label>
+                            <input value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} style={{ width: '100%', padding: 8 }} />
+                        </div>
+                        <div style={{ marginBottom: 15 }}>
+                            <label style={{ display: 'block', fontSize: 12, marginBottom: 5 }}>Category</label>
+                            <input
+                                value={formData.category}
+                                onChange={e => setFormData({ ...formData, category: e.target.value })}
+                                placeholder="e.g. Transmission, Railways"
+                                style={{ width: '100%', padding: 8 }}
+                            />
+                        </div>
+                        <div style={{ marginBottom: 15 }}>
+                            <label style={{ display: 'block', fontSize: 12, marginBottom: 5 }}>Icon (Emoji)</label>
+                            <input value={formData.icon} onChange={e => setFormData({ ...formData, icon: e.target.value })} style={{ width: '100%', padding: 8 }} />
+                        </div>
+                        <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end', marginTop: 20 }}>
+                            <button onClick={() => setShowModal(false)} style={{ padding: '8px 16px', background: '#ccc', border: 'none', borderRadius: 4 }}>Cancel</button>
+                            <button onClick={handleSave} disabled={saving} style={{ padding: '8px 16px', background: COLORS.orange, color: '#fff', border: 'none', borderRadius: 4 }}>
+                                {saving ? "Saving..." : "Save"}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            <ConfirmationModal
+                isOpen={deleteIdx !== null}
+                title="Delete Client"
+                message={`Are you sure you want to delete "${deleteIdx !== null ? clients[deleteIdx]?.short : ''}"? This action cannot be undone.`}
+                confirmText="Delete"
+                onConfirm={confirmDelete}
+                onCancel={() => setDeleteIdx(null)}
+            />
         </main>
     );
 }

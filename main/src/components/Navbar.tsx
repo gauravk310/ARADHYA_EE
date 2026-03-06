@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { COLORS, navItems } from "./constants";
 import { useAuth } from "@/context/AuthContext";
+import ConfirmationModal from "./ConfirmationModal";
 
 const styles: Record<string, React.CSSProperties> = {
     nav: {
@@ -337,112 +338,14 @@ export default function Navbar() {
             )}
 
             {/* Logout Confirmation Modal */}
-            {showLogoutConfirm && (
-                <div
-                    onClick={() => setShowLogoutConfirm(false)}
-                    style={{
-                        position: "fixed",
-                        inset: 0,
-                        background: "rgba(10,20,35,0.75)",
-                        zIndex: 10001,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        padding: 20,
-                        backdropFilter: "blur(4px)",
-                    }}
-                >
-                    <div
-                        onClick={(e) => e.stopPropagation()}
-                        style={{
-                            background: "#fff",
-                            borderRadius: 16,
-                            width: "100%",
-                            maxWidth: 400,
-                            boxShadow: "0 24px 64px rgba(0,0,0,0.35)",
-                            overflow: "hidden",
-                            textAlign: "center",
-                            padding: "32px 28px",
-                            fontFamily: "'Arial', sans-serif",
-                        }}
-                    >
-                        <div style={{
-                            width: 64,
-                            height: 64,
-                            background: "#fdf2f2",
-                            borderRadius: "50%",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            fontSize: 32,
-                            margin: "0 auto 20px",
-                            color: "#e74c3c"
-                        }}>
-                            🚪
-                        </div>
-
-                        <h3 style={{
-                            margin: "0 0 10px",
-                            fontSize: 20,
-                            fontWeight: 700,
-                            color: COLORS.navy,
-                        }}>
-                            Logout Confirmation
-                        </h3>
-
-                        <p style={{
-                            margin: "0 0 28px",
-                            fontSize: 14,
-                            color: "#666",
-                            lineHeight: 1.5,
-                        }}>
-                            Are you sure you want to log out? You will need to sign in again to manage content.
-                        </p>
-
-                        <div style={{ display: "flex", gap: 12 }}>
-                            <button
-                                onClick={() => setShowLogoutConfirm(false)}
-                                style={{
-                                    flex: 1,
-                                    padding: "12px 0",
-                                    borderRadius: 8,
-                                    border: "1.5px solid #dde3e8",
-                                    background: "#fff",
-                                    color: "#555",
-                                    fontSize: 14,
-                                    fontWeight: 600,
-                                    cursor: "pointer",
-                                    transition: "background 0.2s",
-                                }}
-                                onMouseEnter={(e) => (e.currentTarget.style.background = "#f5f7f9")}
-                                onMouseLeave={(e) => (e.currentTarget.style.background = "#fff")}
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                onClick={confirmLogout}
-                                style={{
-                                    flex: 1,
-                                    padding: "12px 0",
-                                    borderRadius: 8,
-                                    border: "none",
-                                    background: "#e74c3c",
-                                    color: "#fff",
-                                    fontSize: 14,
-                                    fontWeight: 700,
-                                    cursor: "pointer",
-                                    boxShadow: "0 4px 12px rgba(231, 76, 60, 0.25)",
-                                    transition: "background 0.2s",
-                                }}
-                                onMouseEnter={(e) => (e.currentTarget.style.background = "#c0392b")}
-                                onMouseLeave={(e) => (e.currentTarget.style.background = "#e74c3c")}
-                            >
-                                Yes, Logout
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
+            <ConfirmationModal
+                isOpen={showLogoutConfirm}
+                title="Logout Confirmation"
+                message="Are you sure you want to log out? You will need to sign in again to manage content."
+                confirmText="Yes, Logout"
+                onConfirm={confirmLogout}
+                onCancel={() => setShowLogoutConfirm(false)}
+            />
         </nav>
     );
 }

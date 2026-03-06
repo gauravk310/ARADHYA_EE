@@ -1,0 +1,118 @@
+{
+    "homeReferences": {
+        "transmission": [
+            "POWER GRID CORPORATION OF INDIA LTD",
+            "STERLITE POWER TRANSMISSION LTD",
+            "ADANI TRANSMISSION LTD",
+            "TORRENT POWER LTD",
+            "TATA POWER DELHI DISTRIBUTION LTD",
+            "DAKSHIN HARYANA BIJLI VITRAN NIGAM"
+        ],
+        "railway_civil": [
+            "NORTHERN RAILWAY",
+            "NORTH EASTERN RAILWAY",
+            "RAIL VIKAS NIGAM LIMITED",
+            "HARYANA SHAHARI VIKAS PRADHIKARAN",
+            "POWER GRID CORPORATION INDIA LTD",
+            "NATIONAL HIGHWAYS AUTHORITY OF INDIA"
+        ]
+    },
+    "clients": [
+        {
+            "name": "Power Grid Corporation of India Ltd",
+            "short": "POWERGRID",
+            "icon": "⚡",
+            "category": "Transmission"
+        },
+        {
+            "name": "Indian Railways",
+            "short": "Indian Railways",
+            "icon": "🚆",
+            "category": "Railways"
+        },
+        {
+            "name": "Northern Railway",
+            "short": "Northern Railway",
+            "icon": "🚆",
+            "category": "Railways"
+        },
+        {
+            "name": "Larsen & Toubro Limited",
+            "short": "L&T",
+            "icon": "🏗️",
+            "category": "Construction"
+        },
+        {
+            "name": "Kalpataru Power Transmission Ltd",
+            "short": "Kalpataru",
+            "icon": "⚡",
+            "category": "Transmission"
+        },
+        {
+            "name": "Texmaco Rail & Engineering Ltd",
+            "short": "Texmaco",
+            "icon": "🚆",
+            "category": "Railways"
+        },
+        {
+            "name": "Delhi Metro Rail Corporation",
+            "short": "DMRC",
+            "icon": "🚇",
+            "category": "Railways"
+        },
+        {
+            "name": "TP Central Odisha Distribution Ltd",
+            "short": "TPCODL",
+            "icon": "🔌",
+            "category": "Distribution"
+        },
+        {
+            "name": "TP Western Odisha Distribution Ltd",
+            "short": "TPWODL",
+            "icon": "🔌",
+            "category": "Distribution"
+        },
+        {
+            "name": "TP Southern Odisha Distribution Ltd",
+            "short": "TPSODL",
+            "icon": "🔌",
+            "category": "Distribution"
+        },
+        {
+            "name": "South East Central Railway",
+            "short": "SECR",
+            "icon": "🚆",
+            "category": "Railways"
+        },
+        {
+            "name": "South Eastern Railway",
+            "short": "SER",
+            "icon": "🚆",
+            "category": "Railways"
+        },
+        {
+            "name": "North Eastern Railway",
+            "short": "NER",
+            "icon": "🚆",
+            "category": "Railways"
+        },
+        {
+            "name": "Industrial Development Corporation of Odisha",
+            "short": "IDCO",
+            "icon": "🏗️",
+            "category": "Civil"
+        },
+        {
+            "name": "ACB (India) Ltd",
+            "short": "ACB India",
+            "icon": "🏗️",
+            "category": "Civil"
+        },
+        {
+            "name": "MP Warehousing & Logistic Corporation",
+            "short": "MPWLC",
+            "icon": "🏗️",
+            "category": "Civil"
+        }
+    ]
+}
