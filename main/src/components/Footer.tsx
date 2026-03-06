@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { COLORS } from "./constants";
+import { COLORS, CONTACT_INFO } from "./constants";
 
 const styles: Record<string, React.CSSProperties> = {
     footer: {
@@ -62,8 +62,8 @@ export default function Footer() {
             </nav>
             <p>Copyright &copy; {new Date().getFullYear()} ARADHYA ELECTRICALS & ENTERPRISES. All rights reserved.</p>
             <p style={{ marginTop: 4 }}>
-                <a href="https://www.aradhyaee.com" style={{ color: "inherit", textDecoration: "none" }}>
-                    www.aradhyaee.com
+                <a href={CONTACT_INFO.website} style={{ color: "inherit", textDecoration: "none" }}>
+                    {CONTACT_INFO.websiteLabel}
                 </a>
             </p>
         </footer>

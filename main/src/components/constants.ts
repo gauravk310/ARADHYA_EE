@@ -25,6 +25,8 @@ export const CONTACT_INFO = {
     address: "House No 20/1/292, Kuranwadi, Mohol, Solapur - 413214",
     addressFull: "House No 20/1/292, Kuranwadi, Mohol, Tal Mohol, Solapur, Maharashtra - 413214",
     googleMapsLink: "https://www.google.com/maps/search/?api=1&query=House+No+20/1/292,+Kuranwadi,+Mohol,+Solapur+-+413214",
+    website: "https://www.aradhyaee.com",
+    websiteLabel: "www.aradhyaee.com",
 };
 
 // Navigation items
