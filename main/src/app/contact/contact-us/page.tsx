@@ -128,20 +128,46 @@ export default function ContactUsPage() {
                         >
                             Regd. Office
                         </h2>
-                        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#555", marginBottom: 16 }}>
-                            House No 20/1/292, Kuranwadi, Mohol,<br />
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=House+No+20/1/292,+Kuranwadi,+Mohol,+Solapur+-+413214"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                                display: "block",
+                                fontSize: 15,
+                                lineHeight: 1.8,
+                                color: "#555",
+                                marginBottom: 16,
+                                textDecoration: "none",
+                                transition: "color 0.2s",
+                            }}
+                            onMouseEnter={(e) => {
+                                (e.currentTarget as HTMLElement).style.color = COLORS.teal;
+                            }}
+                            onMouseLeave={(e) => {
+                                (e.currentTarget as HTMLElement).style.color = "#555";
+                            }}
+                        >
+                            House No 20/1/292, Kuranwadi, Mohol,
+                            <br />
                             Tal Mohol, Solapur, Maharashtra – 413214
-                        </p>
-                        <ul style={{ listStyle: "none", padding: 0, margin: 0, lineHeight: 2, color: "#555", fontSize: 15 }}>
+                        </a>
+                        <ul
+                            style={{
+                                listStyle: "none",
+                                padding: 0,
+                                margin: 0,
+                                lineHeight: 2,
+                                color: "#555",
+                                fontSize: 15,
+                            }}
+                        >
                             <li>
                                 <span style={{ color: COLORS.teal, marginRight: 8 }}>✉</span>
-                                <a href="mailto:balajisalgude@gmail.com" style={{ color: COLORS.teal, textDecoration: "none" }}>
-                                    balajisalgude@gmail.com
-                                </a>
-                            </li>
-                            <li>
-                                <span style={{ color: COLORS.teal, marginRight: 8 }}>✉</span>
-                                <a href="mailto:balajisalgude@gmail.com" style={{ color: COLORS.teal, textDecoration: "none" }}>
+                                <a
+                                    href="mailto:balajisalgude@gmail.com"
+                                    style={{ color: COLORS.teal, textDecoration: "none" }}
+                                >
                                     balajisalgude@gmail.com
                                 </a>
                             </li>
@@ -170,14 +196,46 @@ export default function ContactUsPage() {
                         >
                             Corporate Office
                         </h2>
-                        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#555", marginBottom: 16 }}>
-                            House No 20/1/292, Kuranwadi, Mohol,<br />
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=House+No+20/1/292,+Kuranwadi,+Mohol,+Solapur+-+413214"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                                display: "block",
+                                fontSize: 15,
+                                lineHeight: 1.8,
+                                color: "#555",
+                                marginBottom: 16,
+                                textDecoration: "none",
+                                transition: "color 0.2s",
+                            }}
+                            onMouseEnter={(e) => {
+                                (e.currentTarget as HTMLElement).style.color = COLORS.orange;
+                            }}
+                            onMouseLeave={(e) => {
+                                (e.currentTarget as HTMLElement).style.color = "#555";
+                            }}
+                        >
+                            House No 20/1/292, Kuranwadi, Mohol,
+                            <br />
                             Tal Mohol, Solapur, Maharashtra – 413214
-                        </p>
-                        <ul style={{ listStyle: "none", padding: 0, margin: 0, lineHeight: 2, color: "#555", fontSize: 15 }}>
+                        </a>
+                        <ul
+                            style={{
+                                listStyle: "none",
+                                padding: 0,
+                                margin: 0,
+                                lineHeight: 2,
+                                color: "#555",
+                                fontSize: 15,
+                            }}
+                        >
                             <li>
                                 <span style={{ color: COLORS.orange, marginRight: 8 }}>✉</span>
-                                <a href="mailto:balajisalgude@gmail.com" style={{ color: COLORS.teal, textDecoration: "none" }}>
+                                <a
+                                    href="mailto:balajisalgude@gmail.com"
+                                    style={{ color: COLORS.teal, textDecoration: "none" }}
+                                >
                                     balajisalgude@gmail.com
                                 </a>
                             </li>

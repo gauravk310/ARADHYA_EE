@@ -36,9 +36,21 @@ const styles: Record<string, React.CSSProperties> = {
 };
 
 const contactItems = [
-    { icon: <Mail size={16} />, text: "balajisalgude@gmail.com" },
-    { icon: <Phone size={16} />, text: "+91 99214 46398" },
-    { icon: <MapPin size={16} />, text: "House No 20/1/292, Kuranwadi, Mohol, Solapur - 413214" },
+    {
+        icon: <Mail size={16} />,
+        text: "balajisalgude@gmail.com",
+        href: "mailto:balajisalgude@gmail.com",
+    },
+    {
+        icon: <Phone size={16} />,
+        text: "+91 99214 46398",
+        href: "tel:+919921446398",
+    },
+    {
+        icon: <MapPin size={16} />,
+        text: "House No 20/1/292, Kuranwadi, Mohol, Solapur - 413214",
+        href: "https://www.google.com/maps/search/?api=1&query=House+No+20/1/292,+Kuranwadi,+Mohol,+Solapur+-+413214",
+    },
 ];
 
 const socialLinks = [
@@ -61,10 +73,26 @@ export default function TopBar() {
         <div style={styles.topBar}>
             <div style={styles.topBarLeft}>
                 {contactItems.map((item, idx) => (
-                    <div key={idx} style={styles.topBarItem}>
+                    <a
+                        key={idx}
+                        href={item.href}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        style={{
+                            ...styles.topBarItem,
+                            textDecoration: "none",
+                            transition: "color 0.2s",
+                        }}
+                        onMouseEnter={(e) => {
+                            (e.currentTarget as HTMLElement).style.color = COLORS.blue;
+                        }}
+                        onMouseLeave={(e) => {
+                            (e.currentTarget as HTMLElement).style.color = "#555";
+                        }}
+                    >
                         <span style={{ color: COLORS.blue, display: "flex" }}>{item.icon}</span>
                         <span>{item.text}</span>
-                    </div>
+                    </a>
                 ))}
             </div>
             <div style={styles.topBarRight}>
