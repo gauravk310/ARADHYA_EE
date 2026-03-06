@@ -16,12 +16,8 @@ interface GalleryImage {
     src: string;
     alt: string;
     caption: string;
-    category: "Railways" | "Substation" | "Site Team";
+    category: string;
 }
-
-const ALL_CATEGORIES = ["All", "Railways", "Substation", "Site Team"] as const;
-type FilterCategory = (typeof ALL_CATEGORIES)[number];
-type ImageCategory = Exclude<FilterCategory, "All">;
 
 const categoryColor: Record<string, string> = {
     Railways: "#1a6faf",
@@ -36,7 +32,7 @@ export default function GalleryPage() {
     // Gallery state
     const [images, setImages] = useState<GalleryImage[]>([]);
     const [loading, setLoading] = useState(true);
-    const [activeFilter, setActiveFilter] = useState<FilterCategory>("All");
+    const [activeFilter, setActiveFilter] = useState<string>("All");
     const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
     const [hoveredId, setHoveredId] = useState<number | null>(null);
 
@@ -44,7 +40,7 @@ export default function GalleryPage() {
     const [showModal, setShowModal] = useState(false);
     const [form, setForm] = useState({
         caption: "",
-        category: "Site Team" as ImageCategory,
+        category: "Site Team",
         file: null as File | null,
     });
     const [preview, setPreview] = useState<string | null>(null);
@@ -57,6 +53,16 @@ export default function GalleryPage() {
     const [idToDelete, setIdToDelete] = useState<number | null>(null);
     const [isDeleting, setIsDeleting] = useState(false);
 
+    // Notification state
+    const [notification, setNotification] = useState<{ message: string, type: 'success' | 'error' } | null>(null);
+
+    useEffect(() => {
+        if (notification) {
+            const timer = setTimeout(() => setNotification(null), 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [notification]);
+
     // ── Load gallery data ──────────────────────────────────────────────────────
     useEffect(() => {
         fetch("/data/gallery.json")
@@ -67,6 +73,8 @@ export default function GalleryPage() {
             })
             .catch(() => setLoading(false));
     }, []);
+
+    const dynamicCategories = ["All", ...Array.from(new Set(images.map(img => img.category)))];
 
     const filtered =
         activeFilter === "All"
@@ -169,6 +177,7 @@ export default function GalleryPage() {
             setShowModal(false);
             setForm({ caption: "", category: "Site Team", file: null });
             setPreview(null);
+            setNotification({ message: "Image added successfully!", type: 'success' });
         } catch (err: unknown) {
             setSaveError(err instanceof Error ? err.message : "An error occurred");
         } finally {
@@ -190,6 +199,7 @@ export default function GalleryPage() {
             if (!saveRes.ok) throw new Error("Failed to delete image");
             setImages(updatedImages);
             setIdToDelete(null);
+            setNotification({ message: "Image deleted successfully!", type: 'success' });
         } catch (err: unknown) {
             alert(err instanceof Error ? err.message : "Failed to delete image");
         } finally {
@@ -298,7 +308,7 @@ export default function GalleryPage() {
             >
                 <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", width: "100%" }}>
                     {/* Category tabs */}
-                    {ALL_CATEGORIES.map((cat) => {
+                    {dynamicCategories.map((cat) => {
                         const isActive = activeFilter === cat;
                         return (
                             <button
@@ -938,7 +948,7 @@ export default function GalleryPage() {
                                 />
                             </div>
 
-                            {/* Category */}
+                            {/* Category Input Field */}
                             <div style={{ marginBottom: 24 }}>
                                 <label
                                     style={{
@@ -953,32 +963,26 @@ export default function GalleryPage() {
                                 >
                                     Category *
                                 </label>
-                                <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                                    {(["Railways", "Substation", "Site Team"] as ImageCategory[]).map((cat) => {
-                                        const isSelected = form.category === cat;
-                                        return (
-                                            <button
-                                                key={cat}
-                                                type="button"
-                                                onClick={() => setForm((f) => ({ ...f, category: cat }))}
-                                                style={{
-                                                    padding: "8px 16px",
-                                                    borderRadius: 20,
-                                                    border: `2px solid ${isSelected ? categoryColor[cat] : "#dde3e8"}`,
-                                                    background: isSelected ? categoryColor[cat] : "#fff",
-                                                    color: isSelected ? "#fff" : "#555",
-                                                    fontSize: 13,
-                                                    fontWeight: isSelected ? 700 : 500,
-                                                    fontFamily: "'Arial',sans-serif",
-                                                    cursor: "pointer",
-                                                    transition: "all 0.18s",
-                                                }}
-                                            >
-                                                {cat}
-                                            </button>
-                                        );
-                                    })}
-                                </div>
+                                <input
+                                    type="text"
+                                    placeholder="e.g. Substation, Railways, Site Team"
+                                    value={form.category}
+                                    onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))}
+                                    style={{
+                                        width: "100%",
+                                        padding: "10px 14px",
+                                        borderRadius: 8,
+                                        border: "1.5px solid #dde3e8",
+                                        fontSize: 14,
+                                        fontFamily: "'Arial',sans-serif",
+                                        color: "#333",
+                                        outline: "none",
+                                        boxSizing: "border-box",
+                                        transition: "border-color 0.2s",
+                                    }}
+                                    onFocus={(e) => (e.currentTarget.style.borderColor = COLORS.teal)}
+                                    onBlur={(e) => (e.currentTarget.style.borderColor = "#dde3e8")}
+                                />
                             </div>
 
                             {/* Error */}
@@ -1196,10 +1200,41 @@ export default function GalleryPage() {
                 </div>
             )}
 
+            {/* ── Notification (Toast) ── */}
+            {notification && (
+                <div
+                    style={{
+                        position: "fixed",
+                        bottom: 30,
+                        right: 30,
+                        background: notification.type === 'success' ? "#27ae60" : "#e74c3c",
+                        color: "#fff",
+                        padding: "12px 24px",
+                        borderRadius: 8,
+                        boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+                        zIndex: 10000,
+                        fontFamily: "'Arial',sans-serif",
+                        fontSize: 14,
+                        fontWeight: 600,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 10,
+                        animation: "slideUp 0.3s ease-out",
+                    }}
+                >
+                    <span>{notification.type === 'success' ? "✅" : "⚠️"}</span>
+                    {notification.message}
+                </div>
+            )}
+
             <style>{`
                 @keyframes fadeIn {
                     from { opacity: 0; }
                     to   { opacity: 1; }
+                }
+                @keyframes slideUp {
+                    from { transform: translateY(20px); opacity: 0; }
+                    to   { transform: translateY(0); opacity: 1; }
                 }
                 @keyframes spin {
                     to { transform: rotate(360deg); }
