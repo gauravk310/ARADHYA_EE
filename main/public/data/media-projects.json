@@ -1,0 +1,64 @@
+{
+    "projects": [
+        {
+            "id": "wo-1",
+            "title": "25 kV AC Electric Traction – SP/SSP Substation",
+            "subtitle": "Work Order No. 2400107302",
+            "category": "Railways",
+            "categoryColor": "#1a6faf",
+            "icon": "🚆",
+            "pdfFile": "/Projects/2400107302 - Aradhya - SP -SSP.pdf",
+            "description": "Supply, Installation, Testing & Commissioning of SP/SSP substation equipment for 25 kV AC traction system as part of Indian Railways electrification programme."
+        },
+        {
+            "id": "wo-2",
+            "title": "Electrical Erection Work Order – Contract I",
+            "subtitle": "Aradhya Electricals & Enterprises",
+            "category": "Transmission",
+            "categoryColor": "#0d6e7a",
+            "icon": "⚡",
+            "pdfFile": "/Projects/Aradhya Electrical WO - 1.pdf",
+            "description": "Erection, Testing and Commissioning of high-voltage electrical infrastructure under a dedicated turnkey contract awarded to Aradhya Electricals & Enterprises."
+        },
+        {
+            "id": "wo-3",
+            "title": "Electrical Erection & Commissioning Work Order",
+            "subtitle": "Aradhya Electricals & Enterprises",
+            "category": "Transmission",
+            "categoryColor": "#0d6e7a",
+            "icon": "🔌",
+            "pdfFile": "/Projects/Erection Work Order.pdf",
+            "description": "Comprehensive erection and commissioning work order covering supply, installation, testing and handing-over of electrical systems for power infrastructure projects."
+        },
+        {
+            "id": "wo-4",
+            "title": "Railway OHE Electrification – Work Order WOA25000050",
+            "subtitle": "Order Ref: LELE24M711WOA25000050",
+            "category": "Railways",
+            "categoryColor": "#1a6faf",
+            "icon": "🚈",
+            "pdfFile": "/Projects/LELE24M711WOA25000050 (1).pdf",
+            "description": "Overhead Electrification (OHE) work order for construction and commissioning of traction infrastructure, forming part of the national railway electrification drive."
+        },
+        {
+            "id": "wo-5",
+            "title": "Railway OHE Electrification – Work Order WOD25000044",
+            "subtitle": "Order Ref: LELE24M711WOD25000044",
+            "category": "Railways",
+            "categoryColor": "#1a6faf",
+            "icon": "🛤️",
+            "pdfFile": "/Projects/LELE24M711WOD25000044.pdf",
+            "description": "Traction Overhead Equipment installation, testing and commissioning contract covering designated sections under the Indian Railways network electrification programme."
+        },
+        {
+            "id": "wo-6",
+            "title": "Civil Construction Work Order – Contract II",
+            "subtitle": "Aradhya Electricals & Enterprises",
+            "category": "Civil",
+            "categoryColor": "#7a5200",
+            "icon": "🏗️",
+            "pdfFile": "/Projects/civil Work Order 2.pdf",
+            "description": "Civil works contract for construction of quarters, warehouses, roads and allied infrastructure awarded under a competitive bidding process for public-sector projects."
+        }
+    ]
+}
