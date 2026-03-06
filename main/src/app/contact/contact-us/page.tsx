@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import { COLORS } from "@/components/constants";
+import { COLORS, CONTACT_INFO } from "@/components/constants";
 
 export default function ContactUsPage() {
 
@@ -118,7 +118,7 @@ export default function ContactUsPage() {
                             Regd. Office
                         </h2>
                         <a
-                            href="https://www.google.com/maps/search/?api=1&query=House+No+20/1/292,+Kuranwadi,+Mohol,+Solapur+-+413214"
+                            href={CONTACT_INFO.googleMapsLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
@@ -137,9 +137,9 @@ export default function ContactUsPage() {
                                 (e.currentTarget as HTMLElement).style.color = "#555";
                             }}
                         >
-                            House No 20/1/292, Kuranwadi, Mohol,
+                            {CONTACT_INFO.addressFull.split(', Solapur')[0]},
                             <br />
-                            Tal Mohol, Solapur, Maharashtra – 413214
+                            Solapur, Maharashtra – 413214
                         </a>
                         <ul
                             style={{
@@ -154,16 +154,16 @@ export default function ContactUsPage() {
                             <li>
                                 <span style={{ color: COLORS.teal, marginRight: 8 }}>✉</span>
                                 <a
-                                    href="mailto:balajisalgude@gmail.com"
+                                    href={`mailto:${CONTACT_INFO.email}`}
                                     style={{ color: COLORS.teal, textDecoration: "none" }}
                                 >
-                                    balajisalgude@gmail.com
+                                    {CONTACT_INFO.email}
                                 </a>
                             </li>
                             <li>
                                 <span style={{ color: COLORS.teal, marginRight: 8 }}>📞</span>
-                                <a href="tel:+919921446398" style={{ color: "#555", textDecoration: "none" }}>
-                                    +91 99214 46398
+                                <a href={CONTACT_INFO.phoneHref} style={{ color: "#555", textDecoration: "none" }}>
+                                    {CONTACT_INFO.phone}
                                 </a>
                             </li>
                         </ul>
@@ -186,7 +186,7 @@ export default function ContactUsPage() {
                             Corporate Office
                         </h2>
                         <a
-                            href="https://www.google.com/maps/search/?api=1&query=House+No+20/1/292,+Kuranwadi,+Mohol,+Solapur+-+413214"
+                            href={CONTACT_INFO.googleMapsLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
@@ -205,9 +205,9 @@ export default function ContactUsPage() {
                                 (e.currentTarget as HTMLElement).style.color = "#555";
                             }}
                         >
-                            House No 20/1/292, Kuranwadi, Mohol,
+                            {CONTACT_INFO.addressFull.split(', Solapur')[0]},
                             <br />
-                            Tal Mohol, Solapur, Maharashtra – 413214
+                            Solapur, Maharashtra – 413214
                         </a>
                         <ul
                             style={{
@@ -222,16 +222,16 @@ export default function ContactUsPage() {
                             <li>
                                 <span style={{ color: COLORS.orange, marginRight: 8 }}>✉</span>
                                 <a
-                                    href="mailto:balajisalgude@gmail.com"
+                                    href={`mailto:${CONTACT_INFO.email}`}
                                     style={{ color: COLORS.teal, textDecoration: "none" }}
                                 >
-                                    balajisalgude@gmail.com
+                                    {CONTACT_INFO.email}
                                 </a>
                             </li>
                             <li>
                                 <span style={{ color: COLORS.orange, marginRight: 8 }}>📞</span>
-                                <a href="tel:+919921446398" style={{ color: "#555", textDecoration: "none" }}>
-                                    +91 99214 46398
+                                <a href={CONTACT_INFO.phoneHref} style={{ color: "#555", textDecoration: "none" }}>
+                                    {CONTACT_INFO.phone}
                                 </a>
                             </li>
                         </ul>

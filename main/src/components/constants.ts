@@ -16,6 +16,17 @@ export const COLORS = {
     lightBlue: "#e0f2f1",
 };
 
+// Contact Information
+export const CONTACT_INFO = {
+    phone: "+91 99214 46398",
+    phoneHref: "tel:+919921446398",
+    email: "balajisalgude@gmail.com",
+    whatsapp: "https://wa.me/919921446398",
+    address: "House No 20/1/292, Kuranwadi, Mohol, Solapur - 413214",
+    addressFull: "House No 20/1/292, Kuranwadi, Mohol, Tal Mohol, Solapur, Maharashtra - 413214",
+    googleMapsLink: "https://www.google.com/maps/search/?api=1&query=House+No+20/1/292,+Kuranwadi,+Mohol,+Solapur+-+413214",
+};
+
 // Navigation items
 export const navItems = [
     { label: "Home", href: "/" },

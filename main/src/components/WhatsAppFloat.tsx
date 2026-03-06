@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
+import { CONTACT_INFO } from "./constants";
 
 export default function WhatsAppFloat() {
     return (
         <a
-            href="https://wa.me/919921446398"
+            href={CONTACT_INFO.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             style={{

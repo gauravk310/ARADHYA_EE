@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import { COLORS } from "@/components/constants";
+import { COLORS, CONTACT_INFO } from "@/components/constants";
 
 export default function InvestorRelationsPage() {
     return (
@@ -129,10 +129,9 @@ export default function InvestorRelationsPage() {
                             Regd. Office :
                         </h3>
                         <p style={{ lineHeight: 1.8, color: "#666", fontSize: 14 }}>
-                            House No 20/1/292, Kuranwadi, Mohol,<br />
-                            Solapur - 413214, Maharashtra, India<br />
-                            Tel: +91 99214 46398<br />
-                            Email ID: balajisalgude@gmail.com
+                            {CONTACT_INFO.addressFull}<br />
+                            Tel: {CONTACT_INFO.phone}<br />
+                            Email ID: {CONTACT_INFO.email}
                         </p>
                     </div>
 
@@ -148,10 +147,9 @@ export default function InvestorRelationsPage() {
                             Corporate Office:
                         </h3>
                         <p style={{ lineHeight: 1.8, color: "#666", fontSize: 14 }}>
-                            House No 20/1/292, Kuranwadi, Mohol,<br />
-                            Solapur - 413214, Maharashtra, India<br />
-                            Tel: +91 99214 46398<br />
-                            Email ID: balajisalgude@gmail.com
+                            {CONTACT_INFO.addressFull}<br />
+                            Tel: {CONTACT_INFO.phone}<br />
+                            Email ID: {CONTACT_INFO.email}
                         </p>
                     </div>
                 </div>
