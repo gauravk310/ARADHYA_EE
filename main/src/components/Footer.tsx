@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { COLORS } from "./constants";
 
 const styles: Record<string, React.CSSProperties> = {
@@ -28,25 +29,24 @@ const styles: Record<string, React.CSSProperties> = {
 };
 
 const links = [
-    "Home",
-    "About Us",
-    "Services",
-    "Reference",
-    "Investor",
-    "Media",
-    "Careers",
-    "Contact Us",
-    "Privacy Policy",
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Reference", href: "/reference" },
+    { label: "Investor", href: "/investor/relations" },
+    { label: "Media", href: "/media/projects" },
+    { label: "Careers", href: "/careers/why-aee" },
+    { label: "Contact Us", href: "/contact/contact-us" },
 ];
 
 export default function Footer() {
     return (
         <footer style={styles.footer}>
             <nav style={styles.footerNav} aria-label="Footer navigation">
-                {links.map((l) => (
-                    <a
-                        key={l}
-                        href="#"
+                {links.map((link) => (
+                    <Link
+                        key={link.label}
+                        href={link.href}
                         style={styles.footerNavA}
                         onMouseEnter={(e) =>
                             ((e.currentTarget as HTMLElement).style.color = "#fff")
@@ -56,12 +56,16 @@ export default function Footer() {
                             "rgba(255,255,255,0.7)")
                         }
                     >
-                        {l}
-                    </a>
+                        {link.label}
+                    </Link>
                 ))}
             </nav>
             <p>Copyright &copy; {new Date().getFullYear()} ARADHYA ELECTRICALS & ENTERPRISES. All rights reserved.</p>
-            <p style={{ marginTop: 4 }}>www.aradhyaee.com</p>
+            <p style={{ marginTop: 4 }}>
+                <a href="https://www.aradhyaee.com" style={{ color: "inherit", textDecoration: "none" }}>
+                    www.aradhyaee.com
+                </a>
+            </p>
         </footer>
     );
 }
