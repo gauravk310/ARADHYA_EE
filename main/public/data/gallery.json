@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "src": "/Gallary/img1.jpeg",
+        "alt": "Site team at project ground",
+        "caption": "Project Field Team Briefing – Ground Operations",
+        "category": "Site Team"
+    },
+    {
+        "id": 2,
+        "src": "/Gallary/img2.jpeg",
+        "alt": "Safety inspection line-up at substation site",
+        "caption": "Safety Inspection Line-Up at Substation Site",
+        "category": "Site Team"
+    },
+    {
+        "id": 3,
+        "src": "/Gallary/img3.jpeg",
+        "alt": "Commissioned power substation with Vishvas transformer",
+        "caption": "Commissioned Power Substation – Transformer Bay",
+        "category": "Substation"
+    },
+    {
+        "id": 4,
+        "src": "/Gallary/img4.jpeg",
+        "alt": "Safety toolbox talk at construction site",
+        "caption": "Daily Safety Toolbox Talk at Construction Site",
+        "category": "Site Team"
+    },
+    {
+        "id": 5,
+        "src": "/Gallary/img5.jpeg",
+        "alt": "Large power transformer under erection at substation yard",
+        "caption": "Power Transformer Erection at Substation Yard",
+        "category": "Substation"
+    },
+    {
+        "id": 6,
+        "src": "/Gallary/img6.jpeg",
+        "alt": "Railway OHE workers stringing conductors above freight wagons",
+        "caption": "OHE Stringing Works Above Railway Freight Wagons",
+        "category": "Railways"
+    },
+    {
+        "id": 7,
+        "src": "/Gallary/img7.jpeg",
+        "alt": "Railway OHE mast and overhead wire installation",
+        "caption": "Overhead Equipment Installation – Traction Line",
+        "category": "Railways"
+    },
+    {
+        "id": 8,
+        "src": "/Gallary/img8.jpeg",
+        "alt": "Workers on live OHE catenary at dusk",
+        "caption": "Catenary Maintenance Works – Evening Operation",
+        "category": "Railways"
+    },
+    {
+        "id": 9,
+        "src": "/Gallary/img9.jpeg",
+        "alt": "Workers climbing OHE mast for catenary fitting",
+        "caption": "OHE Mast Climbing for Catenary Wire Fitting",
+        "category": "Railways"
+    },
+    {
+        "id": 10,
+        "src": "/Gallary/img10.jpeg",
+        "alt": "Commissioned 220 kV substation switchyard at sunset",
+        "caption": "220 kV Switchyard – Commissioned at Sunset",
+        "category": "Substation"
+    }
+]
