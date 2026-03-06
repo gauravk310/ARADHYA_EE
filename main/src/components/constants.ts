@@ -26,7 +26,6 @@ export const navItems = [
             { label: "Company Profile", href: "/about/profile" },
             { label: "Vision & Mission", href: "/about/vision-mission" },
             { label: "Message from MD", href: "/about/message-from-md" },
-            { label: "Leadership", href: "#" },
         ],
     },
     {

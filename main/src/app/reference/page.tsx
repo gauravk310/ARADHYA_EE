@@ -8,20 +8,32 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { COLORS } from "@/components/constants";
 
-const logos = [
-    { name: "BSES", src: "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/BSES_Limited_logo.svg/1200px-BSES_Limited_logo.svg.png" },
-    { name: "Indian Railways", src: "https://upload.wikimedia.org/wikipedia/en/thumb/4/45/IR_Logo.svg/1200px-IR_Logo.svg.png" },
-    { name: "Northern Railway", src: "https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Northern_Railway_logo.png/220px-Northern_Railway_logo.png" },
-    { name: "DHBVN", src: "/images/references/collage.png" }, // Using the collage as an example
-    { name: "HVPNL", src: "https://hvpn.org.in/static/images/hvpn_logo.png" },
-    { name: "PHILIPS", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Philips_logo_new.svg/1200px-Philips_logo_new.svg.png" },
-    { name: "PSPCL", src: "https://pspcl.in/wp-content/uploads/2021/05/pspcl-logo.png" },
-    { name: "TATA Power", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Tata_Power_logo.svg/1200px-Tata_Power_logo.svg.png" },
-    { name: "POWERGRID", src: "https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Power_Grid_Corporation_of_India_logo.svg/1200px-Power_Grid_Corporation_of_India_logo.svg.png" },
-    { name: "Adani", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adani_Group_logo.svg/1200px-Adani_Group_logo.svg.png" },
-    { name: "Reliance Energy", src: "https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Reliance_Energy_logo.svg/1200px-Reliance_Energy_logo.svg.png" },
-    { name: "STERLITE", src: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b8/Sterlite_Technologies_logo.svg/1200px-Sterlite_Technologies_logo.svg.png" },
+const clients = [
+    { name: "Power Grid Corporation of India Ltd", short: "POWERGRID", icon: "⚡", category: "Transmission" },
+    { name: "Indian Railways", short: "Indian Railways", icon: "🚆", category: "Railways" },
+    { name: "Northern Railway", short: "Northern Railway", icon: "🚆", category: "Railways" },
+    { name: "Larsen & Toubro Limited", short: "L&T", icon: "🏗️", category: "Construction" },
+    { name: "Kalpataru Power Transmission Ltd", short: "Kalpataru", icon: "⚡", category: "Transmission" },
+    { name: "Texmaco Rail & Engineering Ltd", short: "Texmaco", icon: "🚆", category: "Railways" },
+    { name: "Delhi Metro Rail Corporation", short: "DMRC", icon: "🚇", category: "Railways" },
+    { name: "TP Central Odisha Distribution Ltd", short: "TPCODL", icon: "🔌", category: "Distribution" },
+    { name: "TP Western Odisha Distribution Ltd", short: "TPWODL", icon: "🔌", category: "Distribution" },
+    { name: "TP Southern Odisha Distribution Ltd", short: "TPSODL", icon: "🔌", category: "Distribution" },
+    { name: "South East Central Railway", short: "SECR", icon: "🚆", category: "Railways" },
+    { name: "South Eastern Railway", short: "SER", icon: "🚆", category: "Railways" },
+    { name: "North Eastern Railway", short: "NER", icon: "🚆", category: "Railways" },
+    { name: "Industrial Development Corporation of Odisha", short: "IDCO", icon: "🏗️", category: "Civil" },
+    { name: "ACB (India) Ltd", short: "ACB India", icon: "🏗️", category: "Civil" },
+    { name: "MP Warehousing & Logistic Corporation", short: "MPWLC", icon: "🏗️", category: "Civil" },
 ];
+
+const categoryColors: Record<string, string> = {
+    Transmission: "#0d6e7a",
+    Railways: "#1a2744",
+    Distribution: "#e8621a",
+    Civil: "#2e7d32",
+    Construction: "#5c3d2e",
+};
 
 export default function ReferencePage() {
     return (
@@ -150,68 +162,109 @@ export default function ReferencePage() {
                         style={{
                             display: "grid",
                             gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-                            gap: 40,
+                            gap: 32,
                         }}
                     >
-                        {logos.map((logo, index) => (
-                            <div
-                                key={index}
-                                className="animate-fadeInUp"
-                                style={{
-                                    background: "#fff",
-                                    border: "1px solid rgba(0,0,0,0.05)",
-                                    borderRadius: 20,
-                                    padding: 40,
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    height: 220,
-                                    transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                                    boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
-                                    cursor: 'pointer',
-                                    position: 'relative',
-                                    animationDelay: `${index * 0.1}s`
-                                }}
-                                onMouseEnter={(e) => {
-                                    (e.currentTarget as HTMLElement).style.transform = "translateY(-12px) scale(1.02)";
-                                    (e.currentTarget as HTMLElement).style.boxShadow = "0 25px 50px rgba(0,0,0,0.1)";
-                                    (e.currentTarget as HTMLElement).style.borderColor = COLORS.orange;
-                                }}
-                                onMouseLeave={(e) => {
-                                    (e.currentTarget as HTMLElement).style.transform = "translateY(0) scale(1)";
-                                    (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 30px rgba(0,0,0,0.03)";
-                                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,0,0,0.05)";
-                                }}
-                            >
-                                <img
-                                    src={logo.src}
-                                    alt={logo.name}
+                        {clients.map((client, index) => {
+                            const accentColor = categoryColors[client.category] || COLORS.teal;
+                            return (
+                                <div
+                                    key={index}
+                                    className="animate-fadeInUp"
                                     style={{
-                                        maxWidth: "100%",
-                                        maxHeight: "100%",
-                                        objectFit: "contain",
-                                        transition: 'all 0.4s ease'
+                                        background: "#fff",
+                                        border: "1px solid rgba(0,0,0,0.06)",
+                                        borderRadius: 16,
+                                        padding: "36px 28px",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        minHeight: 200,
+                                        transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                                        boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
+                                        cursor: 'pointer',
+                                        position: 'relative',
+                                        overflow: 'hidden',
+                                        animationDelay: `${index * 0.06}s`,
                                     }}
-                                    onError={(e) => {
-                                        (e.currentTarget as HTMLImageElement).parentElement!.innerHTML = `
-                                            <div style="font-weight: 700; color: ${COLORS.navy}; font-size: 22px; text-align: center; font-family: 'Georgia', serif;">
-                                                ${logo.name}
-                                            </div>
-                                        `;
+                                    onMouseEnter={(e) => {
+                                        (e.currentTarget as HTMLElement).style.transform = "translateY(-8px) scale(1.02)";
+                                        (e.currentTarget as HTMLElement).style.boxShadow = "0 20px 40px rgba(0,0,0,0.1)";
+                                        (e.currentTarget as HTMLElement).style.borderColor = accentColor;
                                     }}
-                                />
-                                <div style={{
-                                    position: 'absolute',
-                                    top: 15,
-                                    right: 15,
-                                    width: 8,
-                                    height: 8,
-                                    borderRadius: '50%',
-                                    background: COLORS.teal,
-                                    opacity: 0.3
-                                }} />
-                            </div>
-                        ))}
+                                    onMouseLeave={(e) => {
+                                        (e.currentTarget as HTMLElement).style.transform = "translateY(0) scale(1)";
+                                        (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.04)";
+                                        (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,0,0,0.06)";
+                                    }}
+                                >
+                                    {/* Top accent bar */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        right: 0,
+                                        height: 4,
+                                        background: `linear-gradient(to right, ${accentColor}, ${accentColor}88)`,
+                                        borderRadius: '16px 16px 0 0',
+                                    }} />
+
+                                    {/* Icon */}
+                                    <div style={{
+                                        fontSize: 36,
+                                        marginBottom: 16,
+                                        width: 64,
+                                        height: 64,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        borderRadius: '50%',
+                                        background: `${accentColor}10`,
+                                    }}>
+                                        {client.icon}
+                                    </div>
+
+                                    {/* Short name */}
+                                    <div style={{
+                                        fontWeight: 700,
+                                        color: COLORS.navy,
+                                        fontSize: 20,
+                                        textAlign: 'center',
+                                        fontFamily: "'Georgia', serif",
+                                        marginBottom: 8,
+                                        lineHeight: 1.3,
+                                    }}>
+                                        {client.short}
+                                    </div>
+
+                                    {/* Full name */}
+                                    <div style={{
+                                        color: COLORS.muted,
+                                        fontSize: 12,
+                                        textAlign: 'center',
+                                        lineHeight: 1.4,
+                                    }}>
+                                        {client.name}
+                                    </div>
+
+                                    {/* Category badge */}
+                                    <div style={{
+                                        marginTop: 14,
+                                        padding: '4px 14px',
+                                        borderRadius: 20,
+                                        background: `${accentColor}12`,
+                                        color: accentColor,
+                                        fontSize: 11,
+                                        fontWeight: 600,
+                                        letterSpacing: 0.5,
+                                        textTransform: 'uppercase',
+                                    }}>
+                                        {client.category}
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
