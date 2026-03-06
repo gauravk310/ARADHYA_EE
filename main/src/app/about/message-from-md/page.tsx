@@ -135,7 +135,7 @@ export default function MessageFromMDPage() {
                                 color: "#333",
                             }}
                         >
-                            &apos;Shyam Indus Power Solutions
+                            &apos;ARADHYA ELECTRICALS &amp; ENTERPRISES
                         </h2>
                         <div style={{ fontSize: 20, fontWeight: 600, margin: "10px 0" }}>Powering</div>
                         <div style={{ fontSize: 22, fontWeight: 700, margin: "10px 0" }}>
@@ -155,62 +155,64 @@ export default function MessageFromMDPage() {
                         </p>
 
                         <p style={{ marginBottom: 25, textAlign: "justify" }}>
-                            As we mark 23 years of our journey, since commencing operations in Mar 2003, Shyam Indus Power Solutions Private Limited, it is a moment of pride and reflection. From our inception as a modest Engineering, Procurement & Construction (EPC) contractor to our evolution into a pan-India organization, we have consistently demonstrated our commitment to excellence, innovation, and nation-building.
+                            As we mark over two decades of our journey, since commencing operations in 2004, ARADHYA ELECTRICALS &amp; ENTERPRISES (ARADHYA EE) has grown from strength to strength. From our inception as an Engineering, Procurement &amp; Construction (EPC) company to our evolution into a trusted, pan-India organization, we have consistently demonstrated our commitment to excellence, innovation, and nation-building.
                         </p>
 
                         <p style={{ marginBottom: 25, textAlign: "justify" }}>
-                            Today, SIPS stands as a trusted partner in the EPC space, delivering comprehensive infrastructure solutions across the Power, Railway and Civil sectors. Our growth story is not just about expansion; it is about purpose of playing our part in building the infrastructure that drives and powers India&apos;s growth journey.
+                            Today, ARADHYA EE stands as an established ISO 9001:2015 certified EPC Company and a trusted partner delivering comprehensive infrastructure solutions across the Power Transmission &amp; Distribution, Railway Electrification, and Civil Infrastructure sectors. Our growth story is not just about expansion; it is about purpose — playing our part in building the infrastructure that drives and powers India&apos;s growth journey.
                         </p>
 
                         <p style={{ marginBottom: 25, textAlign: "justify" }}>
-                            At SIPS, we continue to evolve with the time, leveraging technology, investing in capability-building and embracing smart, future-ready solutions.
+                            We take immense pride in serving prestigious organizations such as Power Grid Corporation of India Ltd (POWERGRID), Indian Railways, Larsen &amp; Toubro Limited, Delhi Metro Rail Corporation (DMRC), TP Central Odisha Distribution Ltd (TPCODL), and many more. These partnerships reflect the trust our clients place in our capabilities and our unwavering commitment to delivering quality on every project.
+                        </p>
+
+                        <p style={{ marginBottom: 25, textAlign: "justify" }}>
+                            At ARADHYA EE, we continue to evolve with the times, leveraging technology, investing in capability-building, and embracing smart, future-ready solutions across all our business verticals.
                         </p>
 
                         <p style={{ marginBottom: 25 }}>
-                            As we enter FY 25-26, we do so with renewed focus, enthusiasm, energy, ambition and a clear vision as follows: -
+                            As we look ahead, we do so with renewed focus, enthusiasm, energy, ambition and a clear vision as follows:
                         </p>
 
                         <ul style={{ paddingLeft: 20, marginBottom: 30, listStyleType: "none" }}>
                             <li style={{ marginBottom: 15, paddingLeft: 20, position: "relative" }}>
                                 <span style={{ position: "absolute", left: 0, top: 10, width: 6, height: 6, backgroundColor: "#333", borderRadius: "50%" }}></span>
-                                To remain the preferred partner for both public and private sector organisations by delivering excellence in service and consistently exceeding our client&apos;s expectations.
+                                To remain the preferred EPC partner for both public and private sector organisations by delivering excellence in service and consistently exceeding our clients&apos; expectations across Transmission, Railways, Distribution and Civil sectors.
                             </li>
                             <li style={{ marginBottom: 15, paddingLeft: 20, position: "relative" }}>
                                 <span style={{ position: "absolute", left: 0, top: 10, width: 6, height: 6, backgroundColor: "#333", borderRadius: "50%" }}></span>
-                                To lead with innovations by adapting digital tools and data driven project management practices.
+                                To lead with innovation by adopting digital tools, data-driven project management practices, and modern engineering techniques in all our operations.
                             </li>
                             <li style={{ marginBottom: 15, paddingLeft: 20, position: "relative" }}>
                                 <span style={{ position: "absolute", left: 0, top: 10, width: 6, height: 6, backgroundColor: "#333", borderRadius: "50%" }}></span>
-                                To focus on strengthening core competencies, diversifying and strategically exploring upstream and downstream opportunities across all EPC related sectors including power, railways and civil infrastructure.
+                                To focus on strengthening core competencies, diversifying strategically, and exploring upstream and downstream opportunities across all EPC-related sectors including power transmission, railway electrification, distribution networks, and civil infrastructure.
                             </li>
                             <li style={{ marginBottom: 15, paddingLeft: 20, position: "relative" }}>
                                 <span style={{ position: "absolute", left: 0, top: 10, width: 6, height: 6, backgroundColor: "#333", borderRadius: "50%" }}></span>
-                                To build responsibly aligning with Environmental Social Governance (ESG) framework embedding sustainability in every project we undertake.
+                                To build responsibly, aligning with Environmental, Social and Governance (ESG) frameworks and embedding sustainability in every project we undertake.
                             </li>
                         </ul>
 
                         <p style={{ marginBottom: 25, textAlign: "justify" }}>
-                            To maintain this position, we would deliver high-quality services, stay responsive to client needs, and draw valuable lessons from the challenges and achievements of the past years.
+                            To sustain and strengthen our position, we remain committed to delivering high-quality services, staying responsive to client needs, and drawing valuable lessons from both the challenges and achievements of the past two decades.
                         </p>
 
                         <p style={{ marginBottom: 25, textAlign: "justify" }}>
-                            I extend my sincere gratitude to all our team members, partners, clients, and stakeholders for their unwavering support which has been the foundation of our journey so far, and it will continue to be the driving force as we aim for new heights in the years ahead.
+                            I extend my sincere gratitude to all our team members, partners, clients, and stakeholders for their unwavering support which has been the foundation of our journey so far, and will continue to be the driving force as we aim for new heights in the years ahead.
                         </p>
 
                         <p style={{ marginBottom: 40, textAlign: "justify" }}>
-                            Together, let&apos;s continue building not just the infrastructure but the future of our nation.
+                            Together, let&apos;s continue building not just infrastructure, but the future of our nation.
                         </p>
 
                         {/* Signature */}
                         <div style={{ marginTop: 50 }}>
                             <p style={{ margin: 0, fontWeight: 500 }}>With Warm Regards,</p>
                             <p style={{ margin: "5px 0", fontWeight: 700, fontSize: 18, color: "#333" }}>
-                                Major (Retd) Satyapal Sindhu
+                                Managing Director
                             </p>
-                            <p style={{ margin: 0, fontWeight: 600 }}>Managing Director</p>
-                            <p style={{ margin: 0 }}>Shyam Indus Power Solutions Private Limited</p>
+                            <p style={{ margin: 0, fontWeight: 600 }}>ARADHYA ELECTRICALS &amp; ENTERPRISES</p>
                             <p style={{ margin: "15px 0 0 0", fontWeight: 700, color: COLORS.navy }}>Jai Hind</p>
-                            <p style={{ margin: "10px 0 0 0", color: "#333" }}>.</p>
                         </div>
                     </div>
                 </div>
