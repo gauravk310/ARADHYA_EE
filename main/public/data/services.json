@@ -1,0 +1,120 @@
+{
+    "services": [
+        {
+            "icon": "⚡",
+            "label": "Transmission",
+            "slug": "transmission",
+            "desc": "Transmission forms a critical link in the power sector's value chain. India's power generation capacities are unevenly dispersed across the country creating..."
+        },
+        {
+            "icon": "🚆",
+            "label": "Railways",
+            "slug": "railways",
+            "desc": "Overhead Electrification works in Indian Railways. The company has commissioned Overhead Electrification Work for Northern Railways. On-going..."
+        },
+        {
+            "icon": "🏗️",
+            "label": "Civil",
+            "slug": "civil",
+            "desc": "In its endeavour to diversify and gain expertise in construction industry, ARADHYA EE has forayed into the civil sector as well. The Company is engaged in Civil Works..."
+        },
+        {
+            "icon": "🔌",
+            "label": "Distribution",
+            "slug": "distribution",
+            "desc": "ARADHYA EE provides end-to-end solutions in power distribution networks including HT/LT line construction, substation erection, underground cabling and rural electrification projects..."
+        }
+    ],
+    "serviceDetails": {
+        "transmission": {
+            "title": "Transmission",
+            "slug": "transmission",
+            "bannerImage": "/railways-hero.jpg",
+            "paragraphs": [
+                "ARADHYA EE provides concept to commissioning solutions of Turnkey Projects. Our EPC division offers comprehensive Engineering, Procurement and Construction services in areas of Power Transmission & Distribution.",
+                "Transmission forms a critical link in the power sector's value chain. India's power generation capacities are unevenly dispersed across the country, creating a need for a robust transmission network. ARADHYA EE is committed to strengthening the nation's power transmission backbone.",
+                "Our experienced team handles projects ranging from 33 kV to 765 kV transmission lines, including survey, design, tower fabrication and erection, stringing, and commissioning. We also undertake construction and augmentation of Extra High Voltage (EHV) substations.",
+                "The company has successfully executed multiple turnkey transmission line projects for state and central utilities across India, earning a reputation for timely delivery, quality workmanship, and adherence to safety standards."
+            ],
+            "highlights": [
+                "33 kV to 765 kV Transmission Lines",
+                "EHV Substation Construction & Augmentation",
+                "Turnkey EPC Solutions",
+                "Survey, Design, Erection & Commissioning",
+                "Tower Fabrication & Foundation Works",
+                "Stringing & Testing of Conductors"
+            ]
+        },
+        "railways": {
+            "title": "Railways",
+            "slug": "railways",
+            "bannerImage": "/Gallary/img6.jpeg",
+            "paragraphs": [
+                "ARADHYA EE has emerged as a key player in the Indian Railways electrification sector. The company has been engaged in Overhead Electrification (OHE) works for Indian Railways, contributing to the nation's ambitious railway electrification program.",
+                "The company has commissioned Overhead Electrification Work for Northern Railways and continues to grow in this critical infrastructure domain. Our Railway Electrification division undertakes end-to-end OHE works including design, supply, erection, testing and commissioning.",
+                "We specialize in 25 kV AC single phase traction overhead equipment installation, along with associated switching stations, sub-sectioning and paralleling posts (SSP/SP), and SCADA systems for remote monitoring and control.",
+                "With a dedicated team of railway electrification professionals and modern equipment, ARADHYA EE is well-positioned to support the Government of India's mission of 100% railway electrification."
+            ],
+            "highlights": [
+                "Overhead Electrification (OHE) Works",
+                "25 kV AC Traction Systems",
+                "Switching Stations & SSP/SP Posts",
+                "SCADA Systems for Remote Control",
+                "Design, Supply, Erection & Commissioning",
+                "Works for Northern Railways & Other Zones"
+            ]
+        },
+        "civil": {
+            "title": "Civil",
+            "slug": "civil",
+            "bannerImage": "/Gallary/img1.jpeg",
+            "paragraphs": [
+                "In its endeavour to diversify and gain expertise in the construction industry, ARADHYA EE has forayed into the civil infrastructure sector as well.",
+                "The Company is engaged in Civil Infrastructure Works which includes Design, Survey, Supply, Construction of different category of Quarters, Construction of Warehouses, Roads, Water Pipelines, Office Building for MP Warehousing & Logistic Corporation (MPWLC), ACB(India)Ltd, TRN Energy Pvt Ltd etc.",
+                "Our civil construction capabilities extend to residential quarters, commercial buildings, industrial warehouses, and public infrastructure projects. We follow stringent quality control measures and employ modern construction techniques to ensure durable and aesthetically superior structures.",
+                "ARADHYA EE's civil division is equipped with experienced engineers, project managers, and skilled labour force to handle projects of varied scale and complexity, ensuring timely delivery and cost effectiveness."
+            ],
+            "highlights": [
+                "Design, Survey & Supply",
+                "Residential Quarters Construction",
+                "Warehouses & Industrial Buildings",
+                "Roads & Water Pipelines",
+                "Office Buildings & Commercial Spaces",
+                "Government & Private Sector Projects"
+            ]
+        },
+        "distribution": {
+            "title": "Distribution",
+            "slug": "distribution",
+            "bannerImage": "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1200&q=80",
+            "paragraphs": [
+                "ARADHYA EE provides end-to-end solutions in power distribution networks, playing a vital role in the last-mile connectivity of electricity to consumers across urban and rural areas.",
+                "Our distribution services encompass HT/LT line construction, substation erection, underground cabling, aerial bunched conductor (ABC) installation, and rural electrification projects under government schemes such as DDUGJY and Saubhagya.",
+                "The company undertakes turnkey distribution projects including design, procurement, construction, testing, and commissioning of 11 kV and 33 kV distribution substations, HT/LT overhead lines, and underground cable networks.",
+                "With a strong commitment to quality and safety, ARADHYA EE has successfully executed distribution projects for various state electricity boards and distribution companies, helping bridge the gap between power generation and end-user consumption."
+            ],
+            "highlights": [
+                "HT/LT Line Construction",
+                "Substation Erection (11 kV & 33 kV)",
+                "Underground Cabling Networks",
+                "Aerial Bunched Conductor (ABC) Installation",
+                "Rural Electrification (DDUGJY / Saubhagya)",
+                "Smart Metering & Distribution Automation"
+            ]
+        }
+    },
+    "pageContent": {
+        "intro1": "Distribution and Retail Supply is the most critical link in the electricity market, which interfaces with the end customers and provides revenue for the entire value chain. In pursuance of reforms in the Power Sector, Government has introduced various models of New Connection, Smart Meter Installation, Meter Reading, Bill Generation, Bill Distribution & Revenue Collection in the distribution segment, both at the rural and urban level.",
+        "intro2": "ARADHYA EE worked with TPDDL (erstwhile NDPL) in renovation of old electrical infrastructure of Delhi. Also, ARADHYA EE provides services in Meter Installation, Complete Operation & Maintenance of Zone, System Augmentation, Survey and Energy Audit, Meter Reading & Bills Distribution, GIS Mapping, Street Lighting.",
+        "intro3": "The company has evolved on its own to develop and manage sophisticated distribution system to improve the AT&C losses level with effective plans and better synchronization amongst man, machine & material. The company has devised methods for energy conversation & technical loss reduction in transmission & distribution and better performance through renovation & modernization of older electrical infrastructure to reduce need for capacity addition as per demand.",
+        "intro4": "The company has various plans to reduce the AT & C losses and improve the existing distribution system, as enumerated below:",
+        "bulletPoints": [
+            "Metering of all categories of consumers",
+            "Energy Audit at 11 KV feeders",
+            "Effective MIS",
+            "Identification and Elimination of theft",
+            "Increase in transformer capacity",
+            "Increase in HT/LT ratio"
+        ]
+    }
+}

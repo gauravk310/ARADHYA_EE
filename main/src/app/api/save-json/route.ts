@@ -9,6 +9,7 @@ const ALLOWED_FILES = [
     "vision.json",
     "references.json",
     "site-data.json",
+    "services.json",
 ];
 
 export async function POST(req: NextRequest) {
