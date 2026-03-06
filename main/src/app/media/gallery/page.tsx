@@ -202,7 +202,7 @@ export default function GalleryPage() {
             setIdToDelete(null);
             setNotification({ message: "Image deleted successfully!", type: 'success' });
         } catch (err: unknown) {
-            alert(err instanceof Error ? err.message : "Failed to delete image");
+            setNotification({ message: err instanceof Error ? err.message : "Failed to delete image", type: 'error' });
         } finally {
             setIsDeleting(false);
         }

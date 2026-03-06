@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { COLORS } from "@/components/constants";
 import { useAuth } from "@/context/AuthContext";
+import ConfirmationModal from "@/components/ConfirmationModal";
 
 interface ProjectItem {
     id: string;
@@ -207,19 +208,14 @@ function ProjectModal({
                         {/* Category */}
                         <div>
                             <label style={labelStyle}>Category *</label>
-                            <select
-                                style={{ ...inputStyle, cursor: "pointer" }}
+                            <input
+                                style={inputStyle}
                                 value={form.category}
                                 onChange={(e) => set("category", e.target.value)}
+                                placeholder="e.g. Transmission, Railways"
                                 onFocus={(e) => (e.currentTarget.style.borderColor = COLORS.teal)}
                                 onBlur={(e) => (e.currentTarget.style.borderColor = "#ddd")}
-                            >
-                                <option value="">Select category</option>
-                                <option value="Transmission">Transmission</option>
-                                <option value="Railways">Railways</option>
-                                <option value="Civil">Civil</option>
-                                <option value="Distribution">Distribution</option>
-                            </select>
+                            />
                         </div>
 
                         {/* Location */}
@@ -468,91 +464,15 @@ export default function ProjectsPage() {
                 />
             )}
 
-            {/* ── Delete Confirm ── */}
-            {deleteConfirm && (
-                <div
-                    style={{
-                        position: "fixed",
-                        inset: 0,
-                        background: "rgba(10,20,40,0.65)",
-                        zIndex: 9000,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        backdropFilter: "blur(4px)",
-                    }}
-                >
-                    <div
-                        style={{
-                            background: "#fff",
-                            borderRadius: 12,
-                            padding: "32px 36px",
-                            maxWidth: 400,
-                            textAlign: "center",
-                            boxShadow: "0 20px 50px rgba(0,0,0,0.3)",
-                        }}
-                    >
-                        <div style={{ fontSize: 40, marginBottom: 12 }}>⚠️</div>
-                        <h3
-                            style={{
-                                margin: "0 0 10px",
-                                fontFamily: "'Georgia', serif",
-                                fontSize: 18,
-                                color: COLORS.navy,
-                            }}
-                        >
-                            Delete Project?
-                        </h3>
-                        <p
-                            style={{
-                                fontSize: 14,
-                                color: "#666",
-                                marginBottom: 24,
-                                fontFamily: "'Arial', sans-serif",
-                            }}
-                        >
-                            This action cannot be undone. The project will be permanently removed.
-                        </p>
-                        <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
-                            <button
-                                onClick={() => setDeleteConfirm(null)}
-                                style={{
-                                    padding: "10px 24px",
-                                    background: "#f0f0f0",
-                                    border: "none",
-                                    borderRadius: 7,
-                                    fontSize: 14,
-                                    fontWeight: 600,
-                                    cursor: "pointer",
-                                    color: "#555",
-                                    fontFamily: "'Arial', sans-serif",
-                                }}
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                onClick={() =>
-                                    handleDelete(deleteConfirm.year, deleteConfirm.id)
-                                }
-                                disabled={saving}
-                                style={{
-                                    padding: "10px 24px",
-                                    background: "#e74c3c",
-                                    border: "none",
-                                    borderRadius: 7,
-                                    fontSize: 14,
-                                    fontWeight: 700,
-                                    cursor: saving ? "not-allowed" : "pointer",
-                                    color: "#fff",
-                                    fontFamily: "'Arial', sans-serif",
-                                }}
-                            >
-                                {saving ? "Deleting…" : "Yes, Delete"}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
+            {/* ── Delete Confirmation ── */}
+            <ConfirmationModal
+                isOpen={deleteConfirm !== null}
+                title="Delete Project?"
+                message="Are you sure you want to delete this project? This action cannot be undone. The project will be permanently removed."
+                confirmText={saving ? "Deleting..." : "Yes, Delete"}
+                onConfirm={() => deleteConfirm && handleDelete(deleteConfirm.year, deleteConfirm.id)}
+                onCancel={() => setDeleteConfirm(null)}
+            />
 
             {/* ── Page Banner ── */}
             <section
