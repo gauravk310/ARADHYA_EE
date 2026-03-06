@@ -9,6 +9,7 @@ import ActivitiesSection from "@/components/ActivitiesSection";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <CTABanner />
       <Footer />
       <ScrollToTop />
+      <WhatsAppFloat />
     </main>
   );
 }
