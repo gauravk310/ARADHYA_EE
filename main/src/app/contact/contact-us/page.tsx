@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import TopBar from "@/components/TopBar";
@@ -9,17 +9,6 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { COLORS } from "@/components/constants";
 
 export default function ContactUsPage() {
-    const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
-    const [submitted, setSubmitted] = useState(false);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setSubmitted(true);
-    };
 
     return (
         <main
@@ -250,137 +239,14 @@ export default function ContactUsPage() {
                 </div>
             </section>
 
-            {/* ── Contact Form + Map ── */}
+            {/* ── Map ── */}
             <section style={{ padding: "50px 40px 70px", background: "#fff" }}>
                 <div
                     style={{
                         maxWidth: 1100,
                         margin: "0 auto",
-                        display: "grid",
-                        gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-                        gap: 48,
-                        alignItems: "start",
                     }}
                 >
-                    {/* Contact Form */}
-                    <div>
-                        <h2
-                            style={{
-                                fontFamily: "'Georgia', serif",
-                                fontSize: 20,
-                                fontWeight: 700,
-                                color: "#222",
-                                marginBottom: 22,
-                                marginTop: 0,
-                            }}
-                        >
-                            Send Us a Message
-                        </h2>
-
-                        {submitted ? (
-                            <div
-                                style={{
-                                    background: "#e6f4f1",
-                                    border: `1px solid ${COLORS.teal}`,
-                                    borderRadius: 6,
-                                    padding: "20px 24px",
-                                    color: COLORS.darkTeal,
-                                    fontSize: 15,
-                                    lineHeight: 1.7,
-                                }}
-                            >
-                                ✅ Thank you for reaching out! We will get back to you shortly.
-                            </div>
-                        ) : (
-                            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                                {[
-                                    { label: "Full Name *", name: "name", type: "text", required: true },
-                                    { label: "Email Address *", name: "email", type: "email", required: true },
-                                    { label: "Phone Number", name: "phone", type: "tel", required: false },
-                                    { label: "Subject *", name: "subject", type: "text", required: true },
-                                ].map((field) => (
-                                    <div key={field.name} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                                        <label
-                                            htmlFor={field.name}
-                                            style={{ fontSize: 13, fontWeight: 600, color: "#444", fontFamily: "Arial, sans-serif" }}
-                                        >
-                                            {field.label}
-                                        </label>
-                                        <input
-                                            id={field.name}
-                                            name={field.name}
-                                            type={field.type}
-                                            required={field.required}
-                                            value={(form as Record<string, string>)[field.name]}
-                                            onChange={handleChange}
-                                            style={{
-                                                padding: "10px 14px",
-                                                border: "1px solid #ccc",
-                                                borderRadius: 4,
-                                                fontSize: 14,
-                                                fontFamily: "Arial, sans-serif",
-                                                outline: "none",
-                                                transition: "border-color 0.2s",
-                                            }}
-                                            onFocus={(e) => { e.currentTarget.style.borderColor = COLORS.teal; }}
-                                            onBlur={(e) => { e.currentTarget.style.borderColor = "#ccc"; }}
-                                        />
-                                    </div>
-                                ))}
-
-                                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                                    <label
-                                        htmlFor="message"
-                                        style={{ fontSize: 13, fontWeight: 600, color: "#444", fontFamily: "Arial, sans-serif" }}
-                                    >
-                                        Message *
-                                    </label>
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        required
-                                        rows={5}
-                                        value={form.message}
-                                        onChange={handleChange}
-                                        style={{
-                                            padding: "10px 14px",
-                                            border: "1px solid #ccc",
-                                            borderRadius: 4,
-                                            fontSize: 14,
-                                            fontFamily: "Arial, sans-serif",
-                                            outline: "none",
-                                            resize: "vertical",
-                                            transition: "border-color 0.2s",
-                                        }}
-                                        onFocus={(e) => { e.currentTarget.style.borderColor = COLORS.teal; }}
-                                        onBlur={(e) => { e.currentTarget.style.borderColor = "#ccc"; }}
-                                    />
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    style={{
-                                        alignSelf: "flex-start",
-                                        background: COLORS.teal,
-                                        color: "#fff",
-                                        border: "none",
-                                        borderRadius: 4,
-                                        padding: "12px 32px",
-                                        fontSize: 14,
-                                        fontWeight: 700,
-                                        fontFamily: "Arial, sans-serif",
-                                        cursor: "pointer",
-                                        letterSpacing: 0.5,
-                                        transition: "background 0.2s",
-                                    }}
-                                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = COLORS.darkTeal; }}
-                                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = COLORS.teal; }}
-                                >
-                                    Send Message
-                                </button>
-                            </form>
-                        )}
-                    </div>
 
                     {/* Google Map */}
                     <div>
