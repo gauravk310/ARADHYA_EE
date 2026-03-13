@@ -191,13 +191,29 @@ export default function GalleryPage() {
         setIsDeleting(true);
 
         try {
+            const imageToDelete = images.find((img) => img.id === idToDelete);
+            
+            // 1. Delete image file from server
+            if (imageToDelete) {
+                const deleteFileRes = await fetch("/api/delete-file", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ filePath: imageToDelete.src }),
+                });
+                if (!deleteFileRes.ok) {
+                    const err = await deleteFileRes.json();
+                    throw new Error(err.error || "Failed to delete image file");
+                }
+            }
+
+            // 2. Remove from gallery.json
             const updatedImages = images.filter((img) => img.id !== idToDelete);
             const saveRes = await fetch("/api/save-json", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ filename: "gallery.json", data: updatedImages }),
             });
-            if (!saveRes.ok) throw new Error("Failed to delete image");
+            if (!saveRes.ok) throw new Error("Failed to delete image record");
             setImages(updatedImages);
             setIdToDelete(null);
             setNotification({ message: "Image deleted successfully!", type: 'success' });

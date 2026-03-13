@@ -477,17 +477,40 @@ export default function MediaProjectsPage() {
     const handleDelete = async (id: string) => {
         if (!data) return;
         setSaving(true);
-        const newData: MediaProjectsData = {
-            projects: data.projects.filter((p) => p.id !== id),
-        };
-        const ok = await saveToServer(newData);
-        setSaving(false);
-        setDeleteConfirm(null);
-        if (ok) {
-            setData(newData);
-            showToast("🗑️ Work order deleted.");
-        } else {
-            showToast("❌ Delete failed.");
+
+        try {
+            const projectToDelete = data.projects.find((p) => p.id === id);
+            
+            // 1. Delete PDF file from server
+            if (projectToDelete && projectToDelete.pdfFile) {
+                const deleteFileRes = await fetch("/api/delete-file", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ filePath: projectToDelete.pdfFile }),
+                });
+                if (!deleteFileRes.ok) {
+                    const err = await deleteFileRes.json();
+                    throw new Error(err.error || "Failed to delete PDF file");
+                }
+            }
+
+            // 2. Remove from media-projects.json
+            const newData: MediaProjectsData = {
+                projects: data.projects.filter((p) => p.id !== id),
+            };
+            const ok = await saveToServer(newData);
+            setSaving(false);
+            setDeleteConfirm(null);
+            if (ok) {
+                setData(newData);
+                showToast("🗑️ Work order deleted.");
+            } else {
+                showToast("❌ Delete failed.");
+            }
+        } catch (err) {
+            setSaving(false);
+            setDeleteConfirm(null);
+            showToast(err instanceof Error ? `❌ ${err.message}` : "❌ Delete failed.");
         }
     };
 

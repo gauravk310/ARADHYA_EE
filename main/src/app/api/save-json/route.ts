@@ -6,6 +6,7 @@ const ALLOWED_FILES = [
     "projects.json",
     "media-projects.json",
     "gallery.json",
+    "documents.json",
     "vision.json",
     "references.json",
     "site-data.json",

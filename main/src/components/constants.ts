@@ -66,6 +66,7 @@ export const navItems = [
         children: [
             { label: "Projects", href: "/media/projects" },
             { label: "Gallery", href: "/media/gallery" },
+            { label: "Documents", href: "/media/documents" },
         ],
     },
     { label: "Why AEE", href: "/careers/why-aee" },
