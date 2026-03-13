@@ -18,15 +18,15 @@ export const COLORS = {
 
 // Contact Information
 export const CONTACT_INFO = {
-    phone: "+91 99214 46398",
-    phoneHref: "tel:+919921446398",
-    email: "aradhyaelectricals.enterprises@gmail.com",
-    whatsapp: "https://wa.me/919921446398",
-    address: "House No 20/1/292, Kuranwadi, Mohol, Solapur - 413214",
-    addressFull: "House No 20/1/292, Kuranwadi, Mohol, Tal Mohol, Solapur, Maharashtra - 413214",
-    googleMapsLink: "https://www.google.com/maps/search/?api=1&query=House+No+20/1/292,+Kuranwadi,+Mohol,+Solapur+-+413214",
-    website: "https://www.aradhyaee.com",
-    websiteLabel: "www.aradhyaee.com",
+    phone: process.env.NEXT_PUBLIC_PHONE || "+91 99214 ",
+    phoneHref: process.env.NEXT_PUBLIC_PHONE_HREF || "tel:+919921446398",
+    email: process.env.NEXT_PUBLIC_EMAIL || "aradhyaelectricals.enterprises@gmail.com",
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || "https://wa.me/919921446398",
+    address: process.env.NEXT_PUBLIC_ADDRESS || "House No 20/1/292, Kuranwadi, Mohol, Solapur - 413214",
+    addressFull: process.env.NEXT_PUBLIC_ADDRESS_FULL || "House No 20/1/292, Kuranwadi, Mohol, Tal Mohol, Solapur, Maharashtra - 413214",
+    googleMapsLink: process.env.NEXT_PUBLIC_GOOGLE_MAPS_LINK || "https://www.google.com/maps/search/?api=1&query=House+No+20/1/292,+Kuranwadi,+Mohol,+Solapur+-+413214",
+    website: process.env.NEXT_PUBLIC_WEBSITE || "https://www.aradhyaee.com",
+    websiteLabel: process.env.NEXT_PUBLIC_WEBSITE_LABEL || "www.aradhyaee.com",
 };
 
 // Navigation items
