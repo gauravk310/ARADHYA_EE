@@ -1,31 +1,8 @@
 {
     "projects": [
         {
-            "year": 2026,
-            "items": [
-                {
-                    "id": "proj-2026-001",
-                    "date": "January 02, 2026",
-                    "title": "Rate Contract for Supply of Goods – 765/400kV Substation, Bareilly",
-                    "description": "SIPS awarded a Rate Contract for supply of Goods Contract for Package – B- Construction of (i) 02 Nos. 400 kV Line bays, (ii) Augmentation of 1×1500 MVA ICT (3rd), (iii) 01 No 765kV ICT bay and associated Tie Bay and (iv) 01 No. 400 kV ICT bay at 765/400kV Substation, Bareilly: Spec No. NR3/NT/W-AIS/DOM/K00/25/11854 (Rfx No. 5002004746).",
-                    "client": "PGCIL",
-                    "category": "Transmission",
-                    "location": "Bareilly, Uttar Pradesh"
-                }
-            ]
-        },
-        {
             "year": 2025,
             "items": [
-                {
-                    "id": "proj-2025-001",
-                    "date": "December 22, 2025",
-                    "title": "33 KV Double Circuit Joda-Tensa Transmission Line",
-                    "description": "SIPS awarded a Rate Contract for SITC of 33 KV Double Circuit Joda-Tensa Transmission line and Underground cable system. Package # A New Tower 1 to proposed Tower at interface point (near Koira PSS/Existing Tower 110).",
-                    "client": "TPWODL",
-                    "category": "Transmission",
-                    "location": "Odisha"
-                },
                 {
                     "id": "proj-2025-002",
                     "date": "November 19, 2025",
@@ -222,26 +199,8 @@
             "year": 2022,
             "items": [
                 {
-                    "id": "proj-2022-001",
-                    "date": "October 20, 2022",
-                    "title": "Rural Electrification – DDUGJY Scheme",
-                    "description": "SIPS awarded a contract for Execution of Rural Electrification works under Deendayal Upadhyaya Gram Jyoti Yojana (DDUGJY) scheme including construction of new 33/11 KV substations, HT/LT lines, and last mile connectivity works.",
-                    "client": "State Electricity Board",
-                    "category": "Distribution",
-                    "location": "Madhya Pradesh"
-                },
-                {
-                    "id": "proj-2022-002",
-                    "date": "August 05, 2022",
-                    "title": "Office Building Construction – ACB India Ltd",
-                    "description": "SIPS awarded a civil construction contract for Design, Supply and Construction of multi-storey office building with associated civil infrastructure for ACB (India) Ltd.",
-                    "client": "ACB (India) Ltd",
-                    "category": "Civil",
-                    "location": "Central India"
-                },
-                {
                     "id": "proj-2022-003",
-                    "date": "April 12, 2022",
+                    "date": "April 10, 2022",
                     "title": "220kV Transmission Line – Eastern Region",
                     "description": "SIPS awarded a turnkey contract for construction of 220kV Double Circuit Transmission Line including tower fabrication, erection, stringing, and commissioning in the Eastern Region.",
                     "client": "PGCIL",
