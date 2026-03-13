@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { put } from "@vercel/blob";
 
 export async function POST(req: NextRequest) {
     try {
@@ -24,18 +23,12 @@ export async function POST(req: NextRequest) {
             .slice(0, 60);
         const uniqueName = `${baseName}_${Date.now()}.${ext}`;
 
-        const uploadDir = path.join(process.cwd(), "public", "Gallary");
+        // Upload to Vercel Blob
+        const blob = await put(`Gallary/${uniqueName}`, file, {
+            access: "public",
+        });
 
-        if (!fs.existsSync(uploadDir)) {
-            fs.mkdirSync(uploadDir, { recursive: true });
-        }
-
-        const bytes = await file.arrayBuffer();
-        const buffer = Buffer.from(bytes);
-        const filePath = path.join(uploadDir, uniqueName);
-        fs.writeFileSync(filePath, buffer);
-
-        return NextResponse.json({ success: true, path: `/Gallary/${uniqueName}` });
+        return NextResponse.json({ success: true, path: blob.url });
     } catch (e) {
         return NextResponse.json({ error: String(e) }, { status: 500 });
     }
