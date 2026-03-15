@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -8,8 +8,6 @@ import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { COLORS } from "@/components/constants";
-import { useAuth } from "@/context/AuthContext";
-import ConfirmationModal from "@/components/ConfirmationModal";
 
 // ── Types ────────────────────────────────────────────────────────────────────
 interface GalleryImage {
@@ -28,42 +26,12 @@ const categoryColor: Record<string, string> = {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function GalleryPage() {
-    const { isLoggedIn } = useAuth();
-
-    // Gallery state
+    // Gallery state - display only
     const [images, setImages] = useState<GalleryImage[]>([]);
     const [loading, setLoading] = useState(true);
     const [activeFilter, setActiveFilter] = useState<string>("All");
     const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
     const [hoveredId, setHoveredId] = useState<number | null>(null);
-
-    // Add-image modal state
-    const [showModal, setShowModal] = useState(false);
-    const [form, setForm] = useState({
-        caption: "",
-        category: "Site Team",
-        file: null as File | null,
-    });
-    const [preview, setPreview] = useState<string | null>(null);
-    const [saving, setSaving] = useState(false);
-    const [saveError, setSaveError] = useState<string | null>(null);
-    const fileInputRef = useRef<HTMLInputElement>(null);
-    const dropRef = useRef<HTMLDivElement>(null);
-
-    // Delete confirmation state
-    const [idToDelete, setIdToDelete] = useState<number | null>(null);
-    const [isDeleting, setIsDeleting] = useState(false);
-
-    // Notification state
-    const [notification, setNotification] = useState<{ message: string, type: 'success' | 'error' } | null>(null);
-
-    useEffect(() => {
-        if (notification) {
-            const timer = setTimeout(() => setNotification(null), 3000);
-            return () => clearTimeout(timer);
-        }
-    }, [notification]);
-
     // ── Load gallery data ──────────────────────────────────────────────────────
     useEffect(() => {
         fetch("/data/gallery.json")
@@ -105,132 +73,14 @@ export default function GalleryPage() {
     }, [handleKey]);
 
     useEffect(() => {
-        document.body.style.overflow =
-            lightboxIdx !== null || showModal || idToDelete !== null ? "hidden" : "";
+        document.body.style.overflow = lightboxIdx !== null ? "hidden" : "";
         return () => {
             document.body.style.overflow = "";
         };
-    }, [lightboxIdx, showModal, idToDelete]);
+    }, [lightboxIdx]);
 
     const activeLightbox =
         lightboxIdx !== null ? filtered[lightboxIdx] : null;
-
-    // ── File handling ──────────────────────────────────────────────────────────
-    const handleFile = (file: File) => {
-        if (!file.type.startsWith("image/")) {
-            setSaveError("Only image files are allowed.");
-            return;
-        }
-        setForm((f) => ({ ...f, file }));
-        const reader = new FileReader();
-        reader.onload = (e) => setPreview(e.target?.result as string);
-        reader.readAsDataURL(file);
-        setSaveError(null);
-    };
-
-    const onDrop = (e: React.DragEvent) => {
-        e.preventDefault();
-        const file = e.dataTransfer.files[0];
-        if (file) handleFile(file);
-    };
-
-    // ── Save new image ─────────────────────────────────────────────────────────
-    const handleSave = async () => {
-        if (!form.file) { setSaveError("Please choose an image."); return; }
-        if (!form.caption.trim()) { setSaveError("Please enter a title/caption."); return; }
-
-        setSaving(true);
-        setSaveError(null);
-
-        try {
-            // 1. Upload image file
-            const fd = new FormData();
-            fd.append("file", form.file);
-            const uploadRes = await fetch("/api/upload-image", {
-                method: "POST",
-                body: fd,
-            });
-            if (!uploadRes.ok) {
-                const err = await uploadRes.json();
-                throw new Error(err.error || "Upload failed");
-            }
-            const { path: imgPath } = await uploadRes.json();
-
-            // 2. Update gallery.json
-            const newImage: GalleryImage = {
-                id: Date.now(),
-                src: imgPath,
-                alt: form.caption.trim(),
-                caption: form.caption.trim(),
-                category: form.category,
-            };
-            const updatedImages = [...images, newImage];
-
-            const saveRes = await fetch("/api/save-json", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ filename: "gallery.json", data: updatedImages }),
-            });
-            if (!saveRes.ok) throw new Error("Failed to save gallery data");
-
-            // 3. Update local state
-            setImages(updatedImages);
-            setShowModal(false);
-            setForm({ caption: "", category: "Site Team", file: null });
-            setPreview(null);
-            setNotification({ message: "Image added successfully!", type: 'success' });
-        } catch (err: unknown) {
-            setSaveError(err instanceof Error ? err.message : "An error occurred");
-        } finally {
-            setSaving(false);
-        }
-    };
-
-    const confirmDelete = async () => {
-        if (idToDelete === null) return;
-        setIsDeleting(true);
-
-        try {
-            const imageToDelete = images.find((img) => img.id === idToDelete);
-            
-            // 1. Delete image file from server
-            if (imageToDelete) {
-                const deleteFileRes = await fetch("/api/delete-file", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ filePath: imageToDelete.src }),
-                });
-                if (!deleteFileRes.ok) {
-                    const err = await deleteFileRes.json();
-                    throw new Error(err.error || "Failed to delete image file");
-                }
-            }
-
-            // 2. Remove from gallery.json
-            const updatedImages = images.filter((img) => img.id !== idToDelete);
-            const saveRes = await fetch("/api/save-json", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ filename: "gallery.json", data: updatedImages }),
-            });
-            if (!saveRes.ok) throw new Error("Failed to delete image record");
-            setImages(updatedImages);
-            setIdToDelete(null);
-            setNotification({ message: "Image deleted successfully!", type: 'success' });
-        } catch (err: unknown) {
-            setNotification({ message: err instanceof Error ? err.message : "Failed to delete image", type: 'error' });
-        } finally {
-            setIsDeleting(false);
-        }
-    };
-
-    const closeModal = () => {
-        if (saving) return;
-        setShowModal(false);
-        setForm({ caption: "", category: "Site Team", file: null });
-        setPreview(null);
-        setSaveError(null);
-    };
 
     // ── Render ────────────────────────────────────────────────────────────────
     return (
@@ -312,7 +162,7 @@ export default function GalleryPage() {
                 </div>
             </section>
 
-            {/* ── Filter Tabs + Add Button ── */}
+            {/* ── Filter Tabs ── */}
             <div
                 style={{
                     background: "#f7f9fa",
@@ -377,45 +227,6 @@ export default function GalleryPage() {
                             </button>
                         );
                     })}
-
-                    {/* Add Image button — right-aligned, admin only */}
-                    {isLoggedIn && (
-                        <button
-                            id="add-gallery-image-btn"
-                            onClick={() => setShowModal(true)}
-                            style={{
-                                marginLeft: "auto",
-                                flexShrink: 0,
-                                display: "flex",
-                                alignItems: "center",
-                                gap: 7,
-                                background: COLORS.orange,
-                                color: "#fff",
-                                border: "none",
-                                borderRadius: 7,
-                                padding: "8px 18px",
-                                fontSize: 13,
-                                fontWeight: 700,
-                                cursor: "pointer",
-                                fontFamily: "'Arial',sans-serif",
-                                boxShadow: "0 3px 10px rgba(0,0,0,0.14)",
-                                transition: "background 0.2s, transform 0.15s",
-                                letterSpacing: 0.3,
-                                whiteSpace: "nowrap",
-                            }}
-                            onMouseEnter={(e) => {
-                                (e.currentTarget as HTMLElement).style.background = "#d4640a";
-                                (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
-                            }}
-                            onMouseLeave={(e) => {
-                                (e.currentTarget as HTMLElement).style.background = COLORS.orange;
-                                (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                            }}
-                        >
-                            <span style={{ fontSize: 16, lineHeight: 1 }}>＋</span>
-                            Add Image
-                        </button>
-                    )}
                 </div>
             </div>
 
@@ -528,52 +339,14 @@ export default function GalleryPage() {
                                                         marginTop: 10,
                                                         display: "flex",
                                                         alignItems: "center",
-                                                        justifyContent: "space-between",
-                                                        width: "100%",
+                                                        fontSize: 12,
+                                                        color: "rgba(255,255,255,0.85)",
+                                                        fontFamily: "'Arial',sans-serif",
+                                                        gap: 6,
                                                     }}
                                                 >
-                                                    <div
-                                                        style={{
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            gap: 6,
-                                                            fontSize: 12,
-                                                            color: "rgba(255,255,255,0.85)",
-                                                            fontFamily: "'Arial',sans-serif",
-                                                        }}
-                                                    >
-                                                        <span style={{ fontSize: 15 }}>🔍</span>
-                                                        Click to enlarge
-                                                    </div>
-
-                                                    {isLoggedIn && (
-                                                        <button
-                                                            onClick={(e) => {
-                                                                e.stopPropagation();
-                                                                setIdToDelete(img.id);
-                                                            }}
-                                                            style={{
-                                                                background: "#e74c3c",
-                                                                color: "#fff",
-                                                                border: "none",
-                                                                borderRadius: 6,
-                                                                padding: "4px 10px",
-                                                                fontSize: 11,
-                                                                fontWeight: 700,
-                                                                cursor: "pointer",
-                                                                fontFamily: "'Arial',sans-serif",
-                                                                display: "flex",
-                                                                alignItems: "center",
-                                                                gap: 4,
-                                                                transition: "background 0.2s",
-                                                            }}
-                                                            onMouseEnter={(e) => (e.currentTarget.style.background = "#c0392b")}
-                                                            onMouseLeave={(e) => (e.currentTarget.style.background = "#e74c3c")}
-                                                        >
-                                                            <span>🗑️</span>
-                                                            Delete
-                                                        </button>
-                                                    )}
+                                                    <span style={{ fontSize: 15 }}>🔍</span>
+                                                    Click to enlarge
                                                 </div>
                                             )}
                                         </div>
@@ -797,342 +570,12 @@ export default function GalleryPage() {
             )}
 
             {/* ── Add Image Modal ── */}
-            {showModal && (
-                <div
-                    onClick={closeModal}
-                    style={{
-                        position: "fixed",
-                        inset: 0,
-                        background: "rgba(10,20,35,0.75)",
-                        zIndex: 9998,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        padding: 20,
-                        backdropFilter: "blur(4px)",
-                        animation: "fadeIn 0.2s ease",
-                    }}
-                >
-                    <div
-                        onClick={(e) => e.stopPropagation()}
-                        style={{
-                            background: "#fff",
-                            borderRadius: 16,
-                            width: "100%",
-                            maxWidth: 520,
-                            boxShadow: "0 24px 64px rgba(0,0,0,0.35)",
-                            overflow: "hidden",
-                        }}
-                    >
-                        {/* Modal header */}
-                        <div
-                            style={{
-                                background: `linear-gradient(135deg, ${COLORS.navy} 0%, #0d3a5c 100%)`,
-                                padding: "22px 28px",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "space-between",
-                            }}
-                        >
-                            <div>
-                                <h2
-                                    style={{
-                                        margin: 0,
-                                        color: "#fff",
-                                        fontSize: 20,
-                                        fontWeight: 700,
-                                        fontFamily: "'Arial',sans-serif",
-                                    }}
-                                >
-                                    Add New Image
-                                </h2>
-                                <p style={{ margin: "4px 0 0", color: "rgba(255,255,255,0.6)", fontSize: 13, fontFamily: "'Arial',sans-serif" }}>
-                                    Upload an image to the gallery
-                                </p>
-                            </div>
-                            <button
-                                onClick={closeModal}
-                                style={{
-                                    background: "rgba(255,255,255,0.12)",
-                                    border: "1px solid rgba(255,255,255,0.22)",
-                                    color: "#fff",
-                                    borderRadius: "50%",
-                                    width: 36,
-                                    height: 36,
-                                    fontSize: 18,
-                                    cursor: "pointer",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                }}
-                            >
-                                ✕
-                            </button>
-                        </div>
-
-                        {/* Modal body */}
-                        <div style={{ padding: "28px 28px 24px" }}>
-                            {/* Drop zone */}
-                            <div
-                                ref={dropRef}
-                                onDragOver={(e) => e.preventDefault()}
-                                onDrop={onDrop}
-                                onClick={() => fileInputRef.current?.click()}
-                                style={{
-                                    border: `2px dashed ${form.file ? COLORS.teal : "#c8d0d8"}`,
-                                    borderRadius: 12,
-                                    padding: 0,
-                                    cursor: "pointer",
-                                    transition: "border-color 0.2s",
-                                    overflow: "hidden",
-                                    marginBottom: 20,
-                                    minHeight: 160,
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    background: form.file ? "#f0fafb" : "#f8fafc",
-                                }}
-                            >
-                                {preview ? (
-                                    <img
-                                        src={preview}
-                                        alt="Preview"
-                                        style={{
-                                            width: "100%",
-                                            maxHeight: 220,
-                                            objectFit: "cover",
-                                            display: "block",
-                                            borderRadius: 10,
-                                        }}
-                                    />
-                                ) : (
-                                    <div style={{ textAlign: "center", padding: "32px 20px" }}>
-                                        <div style={{ fontSize: 36, marginBottom: 10 }}>🖼️</div>
-                                        <p style={{ margin: 0, fontFamily: "'Arial',sans-serif", fontSize: 14, color: "#666", fontWeight: 600 }}>
-                                            Click or drag &amp; drop an image
-                                        </p>
-                                        <p style={{ margin: "6px 0 0", fontFamily: "'Arial',sans-serif", fontSize: 12, color: "#aaa" }}>
-                                            JPEG, PNG, WEBP, GIF supported
-                                        </p>
-                                    </div>
-                                )}
-                            </div>
-                            <input
-                                ref={fileInputRef}
-                                type="file"
-                                accept="image/*"
-                                style={{ display: "none" }}
-                                onChange={(e) => {
-                                    const f = e.target.files?.[0];
-                                    if (f) handleFile(f);
-                                }}
-                            />
-
-                            {/* Caption / Title */}
-                            <div style={{ marginBottom: 16 }}>
-                                <label
-                                    style={{
-                                        display: "block",
-                                        fontSize: 13,
-                                        fontWeight: 700,
-                                        color: COLORS.navy,
-                                        fontFamily: "'Arial',sans-serif",
-                                        marginBottom: 6,
-                                        letterSpacing: 0.3,
-                                    }}
-                                >
-                                    Image Title / Caption *
-                                </label>
-                                <input
-                                    type="text"
-                                    placeholder="e.g. Substation commissioning at dawn"
-                                    value={form.caption}
-                                    onChange={(e) => setForm((f) => ({ ...f, caption: e.target.value }))}
-                                    style={{
-                                        width: "100%",
-                                        padding: "10px 14px",
-                                        borderRadius: 8,
-                                        border: "1.5px solid #dde3e8",
-                                        fontSize: 14,
-                                        fontFamily: "'Arial',sans-serif",
-                                        color: "#333",
-                                        outline: "none",
-                                        boxSizing: "border-box",
-                                        transition: "border-color 0.2s",
-                                    }}
-                                    onFocus={(e) => (e.currentTarget.style.borderColor = COLORS.teal)}
-                                    onBlur={(e) => (e.currentTarget.style.borderColor = "#dde3e8")}
-                                />
-                            </div>
-
-                            {/* Category Input Field */}
-                            <div style={{ marginBottom: 24 }}>
-                                <label
-                                    style={{
-                                        display: "block",
-                                        fontSize: 13,
-                                        fontWeight: 700,
-                                        color: COLORS.navy,
-                                        fontFamily: "'Arial',sans-serif",
-                                        marginBottom: 6,
-                                        letterSpacing: 0.3,
-                                    }}
-                                >
-                                    Category *
-                                </label>
-                                <input
-                                    type="text"
-                                    placeholder="e.g. Substation, Railways, Site Team"
-                                    value={form.category}
-                                    onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))}
-                                    style={{
-                                        width: "100%",
-                                        padding: "10px 14px",
-                                        borderRadius: 8,
-                                        border: "1.5px solid #dde3e8",
-                                        fontSize: 14,
-                                        fontFamily: "'Arial',sans-serif",
-                                        color: "#333",
-                                        outline: "none",
-                                        boxSizing: "border-box",
-                                        transition: "border-color 0.2s",
-                                    }}
-                                    onFocus={(e) => (e.currentTarget.style.borderColor = COLORS.teal)}
-                                    onBlur={(e) => (e.currentTarget.style.borderColor = "#dde3e8")}
-                                />
-                            </div>
-
-                            {/* Error */}
-                            {saveError && (
-                                <div
-                                    style={{
-                                        background: "#fff0f0",
-                                        border: "1px solid #f5c6c6",
-                                        borderRadius: 8,
-                                        padding: "10px 14px",
-                                        marginBottom: 16,
-                                        color: "#c0392b",
-                                        fontSize: 13,
-                                        fontFamily: "'Arial',sans-serif",
-                                    }}
-                                >
-                                    ⚠️ {saveError}
-                                </div>
-                            )}
-
-                            {/* Action buttons */}
-                            <div style={{ display: "flex", gap: 12, justifyContent: "flex-end" }}>
-                                <button
-                                    onClick={closeModal}
-                                    disabled={saving}
-                                    style={{
-                                        padding: "10px 22px",
-                                        borderRadius: 8,
-                                        border: "1.5px solid #dde3e8",
-                                        background: "#fff",
-                                        color: "#555",
-                                        fontSize: 14,
-                                        fontWeight: 600,
-                                        cursor: saving ? "not-allowed" : "pointer",
-                                        fontFamily: "'Arial',sans-serif",
-                                        transition: "background 0.2s",
-                                    }}
-                                    onMouseEnter={(e) => { if (!saving) (e.currentTarget as HTMLElement).style.background = "#f5f7f9"; }}
-                                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#fff"; }}
-                                >
-                                    Cancel
-                                </button>
-                                <button
-                                    id="save-gallery-image-btn"
-                                    onClick={handleSave}
-                                    disabled={saving}
-                                    style={{
-                                        padding: "10px 26px",
-                                        borderRadius: 8,
-                                        border: "none",
-                                        background: saving ? "#aaa" : COLORS.orange,
-                                        color: "#fff",
-                                        fontSize: 14,
-                                        fontWeight: 700,
-                                        cursor: saving ? "not-allowed" : "pointer",
-                                        fontFamily: "'Arial',sans-serif",
-                                        boxShadow: saving ? "none" : "0 4px 12px rgba(0,0,0,0.15)",
-                                        transition: "background 0.2s",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: 8,
-                                    }}
-                                >
-                                    {saving ? (
-                                        <>
-                                            <span style={{
-                                                display: "inline-block",
-                                                width: 14,
-                                                height: 14,
-                                                border: "2px solid rgba(255,255,255,0.4)",
-                                                borderTopColor: "#fff",
-                                                borderRadius: "50%",
-                                                animation: "spin 0.7s linear infinite",
-                                            }} />
-                                            Uploading…
-                                        </>
-                                    ) : (
-                                        "Save Image"
-                                    )}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            <ConfirmationModal
-                isOpen={idToDelete !== null}
-                title="Delete Image"
-                message="Are you sure you want to delete this image? This action cannot be undone."
-                confirmText={isDeleting ? "Deleting..." : "Delete Image"}
-                onConfirm={confirmDelete}
-                onCancel={() => setIdToDelete(null)}
-            />
-
-            {/* ── Notification (Toast) ── */}
-            {notification && (
-                <div
-                    style={{
-                        position: "fixed",
-                        bottom: 30,
-                        right: 30,
-                        background: notification.type === 'success' ? "#27ae60" : "#e74c3c",
-                        color: "#fff",
-                        padding: "12px 24px",
-                        borderRadius: 8,
-                        boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
-                        zIndex: 10000,
-                        fontFamily: "'Arial',sans-serif",
-                        fontSize: 14,
-                        fontWeight: 600,
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 10,
-                        animation: "slideUp 0.3s ease-out",
-                    }}
-                >
-                    <span>{notification.type === 'success' ? "✅" : "⚠️"}</span>
-                    {notification.message}
-                </div>
-            )}
+            {/* Modal removed - static website only */}
 
             <style>{`
                 @keyframes fadeIn {
                     from { opacity: 0; }
                     to   { opacity: 1; }
-                }
-                @keyframes slideUp {
-                    from { transform: translateY(20px); opacity: 0; }
-                    to   { transform: translateY(0); opacity: 1; }
-                }
-                @keyframes spin {
-                    to { transform: rotate(360deg); }
                 }
             `}</style>
 

@@ -2,10 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { COLORS, navItems } from "./constants";
-import { useAuth } from "@/context/AuthContext";
-import ConfirmationModal from "./ConfirmationModal";
 
 const styles: Record<string, React.CSSProperties> = {
     nav: {
@@ -155,13 +153,9 @@ function NavItem({ item, active, onActivate }: NavItemProps) {
 
 export default function Navbar() {
     const pathname = usePathname();
-    const router = useRouter();
-    const { isLoggedIn, logout } = useAuth();
     const [activeNav, setActiveNav] = useState("Home");
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
-    const [logoutHover, setLogoutHover] = useState(false);
-    const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
     useEffect(() => {
         // Find which nav item corresponds to the current path
@@ -182,16 +176,6 @@ export default function Navbar() {
         window.addEventListener("resize", check);
         return () => window.removeEventListener("resize", check);
     }, []);
-
-    const handleLogoutClick = () => {
-        setShowLogoutConfirm(true);
-    };
-
-    const confirmLogout = () => {
-        logout();
-        setShowLogoutConfirm(false);
-        router.push("/");
-    };
 
     return (
         <nav
@@ -279,73 +263,8 @@ export default function Navbar() {
                             onActivate={setActiveNav}
                         />
                     ))}
-
-                    {/* Login / Logout Button */}
-                    <li style={{ display: "flex", alignItems: "center", paddingLeft: 10 }}>
-                        {isLoggedIn ? (
-                            <button
-                                id="logout-btn"
-                                onClick={handleLogoutClick}
-                                onMouseEnter={() => setLogoutHover(true)}
-                                onMouseLeave={() => setLogoutHover(false)}
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: 6,
-                                    padding: "8px 16px",
-                                    background: logoutHover ? "#c0392b" : "#e74c3c",
-                                    color: "#fff",
-                                    border: "none",
-                                    borderRadius: 6,
-                                    fontSize: 13,
-                                    fontWeight: 600,
-                                    cursor: "pointer",
-                                    transition: "background 0.2s",
-                                    letterSpacing: 0.3,
-                                    fontFamily: "'Arial', sans-serif",
-                                }}
-                            >
-                                🔓 Logout
-                            </button>
-                        ) : (
-                            <Link
-                                id="login-btn"
-                                href="/login"
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: 6,
-                                    padding: "8px 16px",
-                                    background: `linear-gradient(135deg, ${COLORS.teal}, ${COLORS.navy})`,
-                                    color: "#fff",
-                                    borderRadius: 6,
-                                    fontSize: 13,
-                                    fontWeight: 600,
-                                    textDecoration: "none",
-                                    letterSpacing: 0.3,
-                                    transition: "opacity 0.2s",
-                                    fontFamily: "'Arial', sans-serif",
-                                    whiteSpace: "nowrap",
-                                }}
-                                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.85")}
-                                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
-                            >
-                                🔐 Login
-                            </Link>
-                        )}
-                    </li>
                 </ul>
             )}
-
-            {/* Logout Confirmation Modal */}
-            <ConfirmationModal
-                isOpen={showLogoutConfirm}
-                title="Logout Confirmation"
-                message="Are you sure you want to log out? You will need to sign in again to manage content."
-                confirmText="Yes, Logout"
-                onConfirm={confirmLogout}
-                onCancel={() => setShowLogoutConfirm(false)}
-            />
         </nav>
     );
 }
